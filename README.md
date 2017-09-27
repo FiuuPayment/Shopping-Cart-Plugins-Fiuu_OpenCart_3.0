@@ -11,6 +11,13 @@ New Update
 - Opencart Seamless Plugin
 - OpenCart version 3.x
 
+Important Notes
+-------------
+MOLPay Sdn. Bhd. is not responsible for any problems that might arise from the use of this module. 
+Use at your own risk.
+
+If you have existing plugin, please backup your Opencart folder
+
 Installations
 -------------
 1. Download from [opencart3.0_seamless.zip](https://github.com/MOLPay/OpenCart3.0_Plugin/raw/master/opencart3.0_seamless.zip) or clone this repository. Copy all the file and paste it at your opencart root directory.  
