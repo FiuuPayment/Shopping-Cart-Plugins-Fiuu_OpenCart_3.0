@@ -11,12 +11,12 @@ New Update
 - Opencart Seamless Plugin
 - OpenCart version 3.x
 
-Important Notes
+Notes
 -------------
 MOLPay Sdn. Bhd. is not responsible for any problems that might arise from the use of this module. 
-Use at your own risk.
+Use at your own risk. For any query or assistance, please email support@molpay.com
 
-If you have existing plugin, please backup your Opencart folder
+If you have existing plugin, please backup your Opencart folder first
 
 Installations
 -------------
