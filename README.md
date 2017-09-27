@@ -4,6 +4,13 @@ MOLPay OpenCart Shopping Cart Plugin v3.0
 
 MOLPay Seamless Integration plugin for OpenCart 3.0.x develop by MOLPay technical team.
 
+Supported version
+-----------------
+New Update
+
+- Opencart Seamless Plugin
+- OpenCart version 3.x
+
 Installations
 -------------
 1. Download from [opencart3.0_seamless.zip](https://github.com/MOLPay/OpenCart3.0_Plugin/raw/master/opencart3.0_seamless.zip) or clone this repository. Copy all the file and paste it at your opencart root directory.  
@@ -20,7 +27,7 @@ Installations
 
 6. Click on the MERCHANT PROFILE menu. Fill in return URL and Callback URL with your shopping cart URL.
   
-  ``Return URL : xxxxxxxxxxxxxx/index.php?route=extension/payment/molpay/return_ipn``
+  ``Return URL : http://xxxxxxxxxxxxxx/index.php?route=extension/payment/molpay/return_ipn``
 
   ``Notification URL : http://xxxxxxxxxxxxxx/index.php?route=extension/payment/molpay/notification_ipn``
 
