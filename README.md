@@ -32,7 +32,7 @@ Installations
 
 5. Fill in your MOLPay Merchant ID & MOLPay Verify Key into the respective fields.
 
-6. Click Transaction > Transaction Settings > Endpoint setting.
+6. Log in your merchant account at https://portal.molpay.com. Click Transaction > Transaction Settings > Endpoint setting.
   
   ``Return URL : http://xxxxxxxxxxxxxx/index.php?route=extension/payment/molpay/return_ipn``
 
