@@ -21,7 +21,7 @@ If you have existing plugin, please backup your Opencart folder first
 
 Installations
 -------------
-1. Download from [opencart3.0_seamless.zip](https://github.com/MOLPay/OpenCart3.0_Plugin/blob/master/opencart3.0_seamless_wAccType.zip) or clone this repository. Copy all the file and paste it at your opencart root directory.  
+1. Download from [opencart3.0_seamless_wAccType.zip](https://github.com/MOLPay/OpenCart3.0_Plugin/blob/master/opencart3.0_seamless_wAccType.zip) or clone this repository. Copy all the file and paste it at your opencart root directory.  
 `<OpenCart_DIR>/admin/*`  
 `<OpenCart_DIR>/catalog/*`
 
