@@ -12,11 +12,6 @@ New Update
 - Opencart Seamless Plugin
 - OpenCart version 3.x
 
-Plugin Releases
------------------
-**Seamless Integration**
-* [MOLPay Seamless Plugin for OpenCart Version 3.0 (Journal2 Checkout)](https://github.com/MOLPay/Magento_Plugin/tree/Version-2.2.x/MOLPay%20Seamless%20Plugin%20for%20Magento%202.1.x%202.2.x/DefaultCheckout)
-
 Notes
 -------------
 MOLPay Sdn. Bhd. is not responsible for any problems that might arise from the use of this module. 
