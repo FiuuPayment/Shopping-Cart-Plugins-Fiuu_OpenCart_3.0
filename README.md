@@ -1,9 +1,9 @@
 # OpenCart3.0_Plugin
-MOLPay OpenCart Shopping Cart Plugin v3.0
+Razer Merchant Services OpenCart Shopping Cart Plugin v3.0
 
-<img src="https://user-images.githubusercontent.com/38641542/39344583-da87c94e-4a15-11e8-9ad4-b2b52165cfe0.jpg">
+<img src="https://user-images.githubusercontent.com/38641542/74150431-e0217e80-4c44-11ea-9f73-a18c82975341.jpg">
 
-MOLPay Seamless Integration plugin for OpenCart 3.0.x develop by MOLPay technical team.
+Razer Merchant Services Seamless Integration plugin for OpenCart 3.0.x develop by Razer Merchant Services technical team.
 
 Supported version
 -----------------
@@ -15,7 +15,7 @@ New Update
 Notes
 -------------
 MOLPay Sdn. Bhd. is not responsible for any problems that might arise from the use of this module. 
-Use at your own risk. For any query or assistance, please email support@molpay.com
+Use at your own risk. For any query or assistance, please email support-sa@razer.com
 
 If you have existing plugin, please backup your Opencart folder first
 
@@ -51,14 +51,14 @@ You can contribute to this plugin by sending the pull request to this repository
 
 Issues
 ------------
-Submit issue to this repository or email to our support@molpay.com
+Submit issue to this repository or email to our support-sa@razer.com
 
 Support
 -------
-Merchant Technical Support / Customer Care : support@molpay.com <br>
-Sales/Reseller Enquiry : sales@molpay.com <br>
-Marketing Campaign : marketing@molpay.com <br>
-Channel/Partner Enquiry : channel@molpay.com <br>
-Media Contact : media@molpay.com <br>
-R&D and Tech-related Suggestion : technical@molpay.com <br>
-Abuse Reporting : abuse@molpay.com
+Merchant Technical Support / Customer Care : support-sa@razer.com <br>
+Sales/Reseller Enquiry : sales-sa@razer.com <br>
+Marketing Campaign : marketing-sa@razer.com <br>
+Channel/Partner Enquiry : channel-sa@razer.com <br>
+Media Contact : media-sa@razer.com <br>
+R&D and Tech-related Suggestion : technical-sa@razer.com <br>
+Abuse Reporting : abuse-sa@razer.com
