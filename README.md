@@ -1,7 +1,7 @@
 # OpenCart3.0_Plugin
 Razer Merchant Services OpenCart Shopping Cart Plugin v3.0
 
-<img src="https://user-images.githubusercontent.com/38641542/74150431-e0217e80-4c44-11ea-9f73-a18c82975341.jpg">
+<img src="https://user-images.githubusercontent.com/38641542/74413101-bbfab300-4e79-11ea-8dfb-3cba6d9208c0.jpg">
 
 Razer Merchant Services Seamless Integration plugin for OpenCart 3.0.x develop by Razer Merchant Services technical team.
 
