@@ -19,6 +19,12 @@ Use at your own risk. For any query or assistance, please email support-sa@razer
 
 If you have existing plugin, please backup your Opencart folder first
 
+![image](https://user-images.githubusercontent.com/19460508/76836786-592b7b80-686c-11ea-8ebd-908cdc811b2d.png)  
+
+![image](https://user-images.githubusercontent.com/19460508/76836806-60528980-686c-11ea-9197-2fd3952ac2c1.png)  
+
+![image](https://user-images.githubusercontent.com/19460508/76836821-66486a80-686c-11ea-9cce-8b0dd975e2ee.png)
+
 Installations
 -------------
 1. Download from [opencart3.0_seamless.zip](https://github.com/RazerMS/OpenCart3.0_Plugin/blob/master/opencart3.0_seamless.zip) or clone this repository. Copy all the file and paste it at your opencart root directory.  
