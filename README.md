@@ -1,4 +1,4 @@
-# OpenCart3.0_Plugin
+# [Shopping Cart Plugins] – RazerMS OperCart 3.0 
 Razer Merchant Services OpenCart Shopping Cart Plugin v3.0
 
 <img src="https://user-images.githubusercontent.com/38641542/74417583-ebadb900-4e81-11ea-94b4-249009025b48.jpg">
@@ -25,31 +25,9 @@ If you have existing plugin, please backup your Opencart folder first
 
 ![image](https://user-images.githubusercontent.com/19460508/76836821-66486a80-686c-11ea-9cce-8b0dd975e2ee.png)
 
-Installations
+Installation Guidance
 -------------
-1. Download from [opencart3.0_seamless.zip](https://github.com/RazerMS/OpenCart3.0_Plugin/blob/master/opencart3.0_seamless.zip) or clone this repository. Copy all the file and paste it at your opencart root directory.  
-`<OpenCart_DIR>/admin/*`  
-`<OpenCart_DIR>/catalog/*`
-
-2. Login to OpenCart administration, click on extension menu and click on Payments submenu.
-
-3. You will see list of payment method available on your OpenCart. Click on [Install] link for Razer Merchant Services to install this module into your online store.  
-
-4. After you’ve successfully install this module, you need to click on [Edit] link for Razer Merchant Services option to configure this payment module in your OpenCart online store.
-
-5. Fill in your Razer Merchant Services Merchant ID & Razer Merchant Services Verify/Secret Key into the respective fields.
-
-6. Log in your merchant account at https://portal.merchant.razer.com. Click Transactions > Settings > Endpoint setting.
-  
-  ``Return URL : http://xxxxxxxxxxxxxx/index.php?route=extension/payment/molpay/return_ipn``
-
-  ``Notification URL : http://xxxxxxxxxxxxxx/index.php?route=extension/payment/molpay/notification_ipn``
-
-  ``Callback URL : http://xxxxxxxxxxxxxx/index.php?route=extension/payment/molpay/callback_ipn`` 
-  
-  *Replace xxxxxxxxxxxxxx with your shoppingcart domain
-
-7. Save the configuration and done.
+[Installation](https://github.com/RazerMS/OpenCart3.0_Plugin/wiki/Installation-Guidance)
 
 Contribution
 ------------
