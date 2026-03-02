@@ -1,0 +1,26 @@
+<script src="{{ js }}"></script>
+
+<div class="text-center">
+    <h3><u>Pay via</u><img
+    src="admin/view/image/payment/molpay-logo.jpg">:</h3>
+    <br/>
+    {% set count = 0 %}
+    <table border = 0>
+      <tr>
+      {% for key,val in channel_list %}
+        {% if val == 1 %}
+          <td align="center"> 
+              <label><img src="admin/view/image/payment/op-{{ key }}.png" width="120px" height="60px" alt="{{ key }}"/></label>
+              <br><input type="radio" name="payment_options" id="payment{{ key }}" value="{{ key }}" required/>
+          </td>       
+          {% set count = count + 1 %}
+          {% if count == 3 %}
+            </tr>
+            <tr>
+            {% set count = 0 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </tr>
+    </table>
+</div>
