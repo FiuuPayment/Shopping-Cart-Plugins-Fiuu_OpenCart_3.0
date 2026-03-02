@@ -15,7 +15,7 @@ New Update
 Notes
 -------------
 Razer Merchant Services is not responsible for any problems that might arise from the use of this module. 
-Use at your own risk. For any query or assistance, please email support-sa@razer.com
+Use at your own risk. For any query or assistance, please email support@fiuu.com
 
 If you have existing plugin, please backup your Opencart folder first
 
@@ -44,14 +44,14 @@ You can contribute to this plugin by sending the pull request to this repository
 
 Issues
 ------------
-Submit issue to this repository or email to our support-sa@razer.com
+Submit issue to this repository or email to our support@fiuu.com
 
 Support
 -------
-Merchant Technical Support / Customer Care : support-sa@razer.com <br>
+Merchant Technical Support / Customer Care : support@fiuu.com <br>
 Sales/Reseller Enquiry : sales-sa@razer.com <br>
 Marketing Campaign : marketing-sa@razer.com <br>
 Channel/Partner Enquiry : channel-sa@razer.com <br>
 Media Contact : media-sa@razer.com <br>
-R&D and Tech-related Suggestion : technical-sa@razer.com <br>
+R&D and Tech-related Suggestion : technical@fiuu.com <br>
 Abuse Reporting : abuse-sa@razer.com

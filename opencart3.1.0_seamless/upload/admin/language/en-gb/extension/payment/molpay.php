@@ -3,7 +3,7 @@
  * Razer Merchant Services OpenCart Plugin
  * 
  * @package Payment Gateway
- * @author Razer Merchant Services Technical Team <technical-sa@razer.com>
+ * @author Razer Merchant Services Technical Team <technical@fiuu.com>
  * @version 3.1.0
  */
  
@@ -18,12 +18,13 @@ $_['heading_title']					= 'Razer Merchant Services';
 $_['text_payment']					= 'Payment';
 $_['text_success']					= 'Success: You have modified Razer Merchant Services account details!';
 $_['text_edit']                     = 'Edit Razer Merchant Services';
-$_['text_molpay']	     			= '<a onclick="window.open(\'https://merchant.razer.com/\');" style="text-decoration:none;"><img src="view/image/payment/logo_RazerMerchantServices.png" alt="Razer Merchant Services" title="Razer Merchant Services" width="100px"/></a>';
+$_['text_molpay']	     			= '<a onclick="window.open(\'https://fiuu.com/\');" style="text-decoration:none;"><img src="view/image/payment/logo_RazerMerchantServices.png" alt="Razer Merchant Services" title="Razer Merchant Services" width="100px"/></a>';
 
 // Entry
 $_['entry_mid']						= 'Razer Merchant Services Merchant ID';
 $_['entry_vkey']					= 'Razer Merchant Services Verify Key';
 $_['entry_skey']					= 'Razer Merchant Services Secret Key';
+$_['entry_extended_vcode']          = 'Enable Extended Vcode';
 $_['entry_type']                    = 'Razer Merchant Services Account Type';
 $_['entry_order_status']			= 'Order Status';
 $_['entry_completed_status']		= 'Completed Status';
@@ -81,6 +82,7 @@ $_['channel_list']					= 	array(
 // Help
 $_['help_vkey']						= 'Please refer to your Razer Merchant Services Merchant Profile for this key.';
 $_['help_skey']						= 'Please refer to your Razer Merchant Services Merchant Profile for this key.';
+$_['help_extended_vcode']           = 'Please tick if you have enabled multi currency channels in your Fiuu Merchant Profile';
 $_['help_type']                     = 'Please choose your account type (Sandbox/Production).';
 
 // Error
@@ -88,5 +90,5 @@ $_['error_permission']				= 'Warning: You do not have permission to modify Razer
 $_['error_mid']						= '<b>Razer Merchant Services Merchant ID</b> Required!';
 $_['error_vkey']					= '<b>Razer Merchant Services Verify Key</b> Required!';
 $_['error_skey']					= '<b>Razer Merchant Services Secret Key</b> Required!';
-$_['error_settings']       			= 'Razer Merchant Services merchant ID and verify key mismatch, contact support-sa@razer.com for assistance.';
+$_['error_settings']       			= 'Razer Merchant Services merchant ID and verify key mismatch, contact support@fiuu.com for assistance.';
 $_['error_status']          		= 'Unable to connect Razer Merchant Services API.';

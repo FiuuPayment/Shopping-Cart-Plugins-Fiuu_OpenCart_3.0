@@ -3,7 +3,7 @@
  * Razer Merchant Services OpenCart Plugin
  *
  * @package Payment Gateway
- * @author Razer Merchant Services Technical Team <technical-sa@razer.com>
+ * @author Razer Merchant Services Technical Team <technical@fiuu.com>
  * @version 3.1.0
  */
 
@@ -48,6 +48,7 @@ class ControllerExtensionPaymentMolpay extends Controller {
                 $data['entry_mid'] = $this->language->get('entry_mid');
                 $data['entry_vkey'] = $this->language->get('entry_vkey');
                 $data['entry_skey'] = $this->language->get('entry_skey');
+                $data['entry_extended_vcode'] = $this->language->get('entry_extended_vcode');
                 $data['entry_type'] = $this->language->get('entry_type');
                 $data['entry_order_status'] = $this->language->get('entry_order_status');
                 $data['entry_completed_status'] = $this->language->get('entry_completed_status');
@@ -63,6 +64,7 @@ class ControllerExtensionPaymentMolpay extends Controller {
 
                 $data['help_vkey'] = $this->language->get('help_vkey');
                 $data['help_skey'] = $this->language->get('help_skey');
+                $data['help_extended_vcode'] = $this->language->get('help_extended_vcode');
                 $data['help_type'] = $this->language->get('help_type');
 
                 $data['button_save'] = $this->language->get('button_save');
@@ -141,6 +143,12 @@ class ControllerExtensionPaymentMolpay extends Controller {
                         $data['payment_molpay_skey'] = $this->request->post['payment_molpay_skey'];
                 } else {
                         $data['payment_molpay_skey'] = $this->config->get('payment_molpay_skey');
+                }
+
+                if (isset($this->request->post['payment_molpay_extended_vcode'])) {
+                        $data['payment_molpay_extended_vcode'] = $this->request->post['payment_molpay_extended_vcode'];
+                } else {
+                        $data['payment_molpay_extended_vcode'] = $this->config->get('payment_molpay_extended_vcode');
                 }
 
                 if (isset($this->request->post['payment_molpay_type'])) {

@@ -3,7 +3,7 @@
  * Razer Merchant Services OpenCart Plugin
  * 
  * @package Payment Gateway
- * @author Razer Merchant Services Technical Team <technical-sa@razer.com>
+ * @author Razer Merchant Services Technical Team <technical@fiuu.com>
  * @version 3.1.0
  */
  
