@@ -18,7 +18,7 @@ $_['heading_title']					= 'Razer Merchant Services';
 $_['text_payment']					= 'Payment';
 $_['text_success']					= 'Success: You have modified Razer Merchant Services account details!';
 $_['text_edit']                     = 'Edit Razer Merchant Services';
-$_['text_molpay']	     			= '<a onclick="window.open(\'https://fiuu.com/\');" style="text-decoration:none;"><img src="view/image/payment/logo_RazerMerchantServices.png" alt="Razer Merchant Services" title="Razer Merchant Services" width="100px"/></a>';
+$_['text_molpay']	     			= '<a onclick="window.open(\'https://fiuu.com/\');" style="text-decoration:none;"><img src="view/image/payment/logo_Fiuu.png" alt="Razer Merchant Services" title="Razer Merchant Services" width="100px"/></a>';
 
 // Entry
 $_['entry_mid']						= 'Razer Merchant Services Merchant ID';
