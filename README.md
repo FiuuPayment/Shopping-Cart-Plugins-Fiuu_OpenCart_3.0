@@ -12,10 +12,22 @@ New Update
 - Opencart Seamless Plugin
 - OpenCart version 3.x
 
+Version Branch
+-----------------
+
+[opencart-3.0.8_seamless_ID](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart-3.0.8_seamless_ID)
+[opencart3.0.10_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.10_seamless)
+[opencart3.0.11_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.11_seamless)
+[opencart3.0.8_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.8_seamless)
+[opencart3.0.9_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.9_seamless)
+[opencart3.0_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless)
+[opencart3.0_seamless_wJournal2](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal2)
+[opencart3.0_seamless_wJournal3.0.7](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal3.0.7)
+
 Notes
 -------------
 Razer Merchant Services is not responsible for any problems that might arise from the use of this module. 
-Use at your own risk. For any query or assistance, please email support-sa@razer.com
+Use at your own risk. For any query or assistance, please email support@fiuu.com
 
 If you have existing plugin, please backup your Opencart folder first
 
@@ -44,14 +56,14 @@ You can contribute to this plugin by sending the pull request to this repository
 
 Issues
 ------------
-Submit issue to this repository or email to our support-sa@razer.com
+Submit issue to this repository or email to our support@fiuu.com
 
 Support
 -------
-Merchant Technical Support / Customer Care : support-sa@razer.com <br>
+Merchant Technical Support / Customer Care : support@fiuu.com <br>
 Sales/Reseller Enquiry : sales-sa@razer.com <br>
 Marketing Campaign : marketing-sa@razer.com <br>
 Channel/Partner Enquiry : channel-sa@razer.com <br>
 Media Contact : media-sa@razer.com <br>
-R&D and Tech-related Suggestion : technical-sa@razer.com <br>
+R&D and Tech-related Suggestion : technical@fiuu.com <br>
 Abuse Reporting : abuse-sa@razer.com

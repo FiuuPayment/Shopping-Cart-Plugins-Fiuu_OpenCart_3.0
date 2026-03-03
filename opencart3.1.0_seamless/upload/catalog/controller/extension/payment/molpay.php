@@ -3,7 +3,7 @@
  * Razer Merchant Services OpenCart Plugin
  *
  * @package Payment Gateway
- * @author Razer Merchant Services Technical Team <technical-sa@razer.com>
+ * @author Razer Merchant Services Technical Team <technical@fiuu.com>
  * @version 2.0
  */
 
@@ -35,8 +35,13 @@ class ControllerExtensionPaymentMolpay extends Controller {
                 $data['bill_mobile'] = $telephone;
                 $data['country'] = $order_info['payment_iso_code_2'];
                 $data['currency'] = $order_info['currency_code'];
-                $data['vcode'] = md5($data['amount'].$this->config->get('payment_molpay_mid').$data['orderid'].$this->config->get('payment_molpay_vkey'));
                 $data['js'] = $this->config->get('payment_molpay_type').'MOLPay/API/seamless/3.28/js/MOLPay_seamless.deco.js';
+
+        if ($this->config->get('payment_molpay_extended_vcode') == "1") {
+            $data['vcode'] = md5($data['amount'].$this->config->get('payment_molpay_mid').$data['orderid'].$this->config->get('payment_molpay_vkey').$data['currency']);
+        } else {
+            $data['vcode'] = md5($data['amount'].$this->config->get('payment_molpay_mid').$data['orderid'].$this->config->get('payment_molpay_vkey'));
+        }
 
         //Load all channel from language file.
         $this->load->language('extension/payment/molpay');
