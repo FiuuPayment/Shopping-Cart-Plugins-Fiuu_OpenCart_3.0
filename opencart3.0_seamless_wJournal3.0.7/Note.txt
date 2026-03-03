@@ -1,0 +1,6 @@
+Installation
+
+1.Make sure Journal3 theme already install in the OpenCart.
+2.Please backup related folders and files before implement. 
+2.Copy and replace existing file.
+

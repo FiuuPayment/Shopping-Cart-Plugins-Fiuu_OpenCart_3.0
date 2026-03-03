@@ -1,0 +1,111 @@
+<style>
+.chl_img{border:solid 0px black; margin:10px;}
+.selected_bank{
+    box-shadow:0px 1px 12px 1px #333;
+}
+</style>
+<script src="{{ js }}"></script>
+<div id="payment1">
+       <form action="{{ action }}" method="post" id="payment">
+         <input type="hidden" name="amount" value="{{ amount }}" />
+         <input type="hidden" name="orderid" value="{{ orderid }} " />
+         <input type="hidden" name="bill_name" value="{{  bill_name }}" />
+         <input type="hidden" name="bill_email" value="{{ bill_email }}" />
+         <input type="hidden" name="bill_mobile" value="{{ bill_mobile }}" />
+         <input type="hidden" name="country" value="{{ country }}" />
+         <input type="hidden" name="currency" value="{{ currency }}" />
+         <input type="hidden" name="vcode" value="{{ vcode }}">
+         <input type="hidden" name="returnurl" value="{{ returnurl }}" />
+         <input type="hidden" name="bill_desc" value="{{ prod_desc2 }}" />        
+        </form>
+</div>
+ <button 
+    class="btn btn-default" 
+    type="button" id="myPay" 
+    data-toggle="molpayseamless" 
+    data-mpsmerchantid="{{ mid }}" 
+    data-mpsbill_desc="{{ prod_desc2 }}" 
+    data-mpsbill_mobile="{{ bill_mobile }}" 
+    data-mpsbill_email="{{ bill_email }}" 
+    data-mpscountry="{{ country }}" 
+    data-mpscurrency="{{ currency }}" 
+    data-mpschannel="" 
+    data-mpsamount="{{ amount }}" 
+    data-mpsorderid="{{ orderid }}" 
+    data-mpsbill_name="{{ bill_name }}" 
+    data-mpsvcode="{{ vcode }}" 
+    data-mpscancelurl="{{ cancelurl }}" 
+    data-mpstimer= 1
+    data-mpstimerbox="YES"
+    data-mpsreturnurl="{{ returnurl }}" style="display:none">
+</button>
+ 
+<div class="text-center">
+    <h3><u>Pay via</u>:</h3>
+    <img
+    src="admin/view/image/payment/logo_RazerMerchantServices.png" width="150px" height="auto">
+        <br/>
+    {% set count = 0 %}
+    <table border = 0 class="text-center" style='table-layout:fixed;' width='100%'>
+      <tr>
+      {% for key,val in channel_list %}
+        {% if val == 1 %}
+          <td align="center"> 
+              <label><img src="admin/view/image/payment/op-{{ key }}.png"  id="img_{{ key }}" class="chl_img" width="auto" height="auto" alt="{{ key }}"/></label>
+              <br><input type="radio" name="payment_options" class="chl_radiobtn" id="payment{{ key }}" value="{{ key }}" style="display:none" required />
+          </td>       
+          {% set count = count + 1 %}
+          {% if count == 4 %}
+            </tr>
+            <tr>
+            {% set count = 0 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </tr>
+    </table>
+</div>
+<div class="buttons">
+  <div class="pull-right">
+  <input type="button" value="{{ button_confirm }}" id="button-confirm" data-loading-text="{{ text_loading }}" class="btn btn-primary" />
+  </div>
+</div>
+<script type="text/javascript">
+$('.chl_img').on("click change", function(){ 
+        $('#quick-checkout-button-confirm').removeClass("disabled");
+        $('#quick-checkout-button-confirm').removeAttr("disabled");
+        $('#quick-checkout-button-confirm').removeAttr("disabled");
+        $('#quick-checkout-button-confirm span').text('{{ j3.settings.get('confirmOrderLanguage') }}');
+    $('.selected_bank').removeClass('selected_bank');
+    $(this).addClass('selected_bank');
+          var str = $(this).attr('id');
+      var res = str.split("_");
+      $('#myPay').attr('data-mpschannel',""); 
+      if (Object.keys(res).length > 2) {
+        $('#myPay').attr('data-mpschannel',res[1]+'_'+res[2]);
+        $("#payment"+res[1]+'_'+res[2]).prop("checked", true);
+      }else{ 
+        $('#myPay').attr('data-mpschannel',res[1]);
+        $("#payment"+res[1]).prop("checked", true);
+      }
+   });
+
+$('.chl_radiobtn').on("click change", function(){
+    $('.selected_bank').removeClass('selected_bank');
+    $('#img_'+$(this).attr('value')).addClass('selected_bank');
+});
+
+$('#button-confirm').bind('click', function() {
+      if (!$("input[name='payment_options']:checked").val()) {
+       alert('Please select payment channel!');
+        $('#quick-checkout-button-confirm').removeClass("disabled");
+        $('#quick-checkout-button-confirm').removeAttr("disabled");
+        $('#quick-checkout-button-confirm').removeAttr("disabled");
+        $('#quick-checkout-button-confirm span').text('{{ j3.settings.get('confirmOrderLanguage') }}');
+       return false;
+    }
+    else {
+        $("#myPay").click();
+    }
+ });
+//--></script>
