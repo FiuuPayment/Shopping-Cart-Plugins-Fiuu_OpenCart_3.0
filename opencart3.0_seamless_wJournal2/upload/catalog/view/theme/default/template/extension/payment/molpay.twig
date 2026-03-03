@@ -1,0 +1,29 @@
+<form action="{{ action }}" method="post" id="payment">
+
+  <input type="hidden" name="amount" value="{{ amount }}" />
+  <input type="hidden" name="orderid" value="{{ orderid }} " />
+  <input type="hidden" name="bill_name" value="{{  bill_name }}" />
+  <input type="hidden" name="bill_email" value="{{ bill_email }}" />
+  <input type="hidden" name="bill_mobile" value="{{ bill_mobile }}" />
+  <input type="hidden" name="country" value="{{ country }}" />
+  <input type="hidden" name="currency" value="{{ currency }}" />
+  <input type="hidden" name="vcode" value="{{ vcode }}">
+  <input type="hidden" name="returnurl" value="{{ returnurl }}" />
+
+  <input type="hidden" name="bill_desc" value="{{ prod_desc2 }}" />
+</form>
+
+<script src="{{ js }}"></script>
+
+<div class="text-center">
+    <h3><u>Pay via</u><img
+    src="admin/view/image/payment/molpay-logo.jpg">:</h3>
+        <br/>
+
+        {% for key,val in channel_list %}
+                {% if val == 1 %}
+                       <button class="btn btn-default" type="button" id="myPay" data-toggle="molpayseamless" data-mpsmerchantid="{{ mid }}" data-mpsbill_desc="{{ prod_desc2 }}" data-mpsbill_mobile="{{ bill_mobile }}" data-mpsbill_email="{{ bill_email }}" data-mpscountry="{{ country }}" data-mpscurrency="{{ currency }}" data-mpschannel="{{ key }}" data-mpsamount="{{ amount }}" data-mpsorderid="{{ orderid }}" data-mpsbill_name="{{ bill_name }}" data-mpsvcode="{{ vcode }}" data-mpsreturnurl="{{ returnurl }}"><img src="admin/view/image/payment/op-{{ key }}.png" width="120px" height="60px" alt="{{ key }}"/></button>
+                {% endif %}
+        {% endfor %}
+
+</div>
