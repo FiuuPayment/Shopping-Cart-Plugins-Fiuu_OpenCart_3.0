@@ -1,9 +1,9 @@
-# [Shopping Cart Plugins] – RazerMS OperCart 3.0 
-Razer Merchant Services OpenCart Shopping Cart Plugin v3.0
+# [Shopping Cart Plugins] – Fiuu OperCart 3.0 
+Fiuu OpenCart Shopping Cart Plugin v3.0
 
 <img src="https://user-images.githubusercontent.com/38641542/74417583-ebadb900-4e81-11ea-94b4-249009025b48.jpg">
 
-Razer Merchant Services Seamless Integration plugin for OpenCart 3.0.x develop by Razer Merchant Services technical team.
+Fiuu Seamless Integration plugin for OpenCart 3.0.x develop by Fiuu technical team.
 
 Supported version
 -----------------
@@ -15,18 +15,18 @@ New Update
 Version Branch
 -----------------
 
-[opencart-3.0.8_seamless_ID](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart-3.0.8_seamless_ID)
-[opencart3.0.10_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.10_seamless)
-[opencart3.0.11_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.11_seamless)
-[opencart3.0.8_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.8_seamless)
-[opencart3.0.9_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.9_seamless)
-[opencart3.0_seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless)
-[opencart3.0_seamless_wJournal2](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal2)
-[opencart3.0_seamless_wJournal3.0.7](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal3.0.7)
+- [OpenCart 3.0.8 Seamless for e2Pay](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart-3.0.8_seamless_ID)
+- [OpenCart 3.0.10 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.10_seamless)
+- [OpenCart 3.0.11 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.11_seamless)
+- [OpenCart 3.0.8 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.8_seamless)
+- [OpenCart 3.0.9 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.9_seamless)
+- [OpenCart 3.0 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless)
+- [OpenCart 3.0 Seamless Journal2](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal2)
+- [OpenCart 3.0 Seamless Journal3](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal3.0.7)
 
 Notes
 -------------
-Razer Merchant Services is not responsible for any problems that might arise from the use of this module. 
+Fiuu is not responsible for any problems that might arise from the use of this module. 
 Use at your own risk. For any query or assistance, please email support@fiuu.com
 
 If you have existing plugin, please backup your Opencart folder first
@@ -39,7 +39,7 @@ If you have existing plugin, please backup your Opencart folder first
 
 Installation Guidance
 -------------
-[Installation](https://github.com/RazerMS/OpenCart3.0_Plugin/wiki/Installation-Guidance)
+[Installation](https://github.com/FiuuPayment/OpenCart3.0_Plugin/wiki/Installation-Guidance)
 
 Contribution
 ------------
@@ -47,12 +47,12 @@ You can contribute to this plugin by sending the pull request to this repository
 
 ## Resources
 
-- GitHub:     https://github.com/RazerMS
-- Website:    https://merchant.razer.com/
-- Twitter:    https://twitter.com/Razer_MS
-- YouTube:    https://www.youtube.com/c/RazerMerchantServices
-- Facebook:   https://www.facebook.com/RazerMerchantServices/
-- Instagram:  https://www.instagram.com/RazerMerchantServices/
+- GitHub: https://github.com/FiuuPayment
+- Website: https://fiuu.com/
+- Twitter: https://twitter.com/FiuuPayment
+- YouTube: https://www.youtube.com/c/FiuuPayment
+- Facebook: https://www.facebook.com/FiuuPayment/
+- Instagram: https://www.instagram.com/FiuuPayment/
 
 Issues
 ------------
@@ -61,9 +61,9 @@ Submit issue to this repository or email to our support@fiuu.com
 Support
 -------
 Merchant Technical Support / Customer Care : support@fiuu.com <br>
-Sales/Reseller Enquiry : sales-sa@razer.com <br>
-Marketing Campaign : marketing-sa@razer.com <br>
-Channel/Partner Enquiry : channel-sa@razer.com <br>
-Media Contact : media-sa@razer.com <br>
+Sales/Reseller Enquiry : sales@fiuu.com <br>
+Marketing Campaign : marketing@fiuu.com <br>
+Channel/Partner Enquiry : channel@fiuu.com <br>
+Media Contact : media@fiuu.com <br>
 R&D and Tech-related Suggestion : technical@fiuu.com <br>
-Abuse Reporting : abuse-sa@razer.com
+Abuse Reporting : abuse@fiuu.com
