@@ -1,4 +1,4 @@
-# [Shopping Cart Plugins] – Fiuu OperCart 3.0 
+# [Shopping Cart Plugins] – Fiuu OpenCart 3.0 
 Fiuu OpenCart Shopping Cart Plugin v3.0
 
 <img src="https://user-images.githubusercontent.com/38641542/74417583-ebadb900-4e81-11ea-94b4-249009025b48.jpg">
