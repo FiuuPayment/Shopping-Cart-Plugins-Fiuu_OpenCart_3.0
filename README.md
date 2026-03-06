@@ -39,7 +39,7 @@ If you have existing plugin, please backup your Opencart folder first
 
 Installation Guidance
 -------------
-[Installation](https://github.com/FiuuPayment/OpenCart3.0_Plugin/wiki/Installation-Guidance)
+[Installation](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/wiki/Installation-Guidance)
 
 Contribution
 ------------
