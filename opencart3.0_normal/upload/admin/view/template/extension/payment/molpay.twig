@@ -1,0 +1,155 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-molpay" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-molpay" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="molpay_status" id="input-status" class="form-control">
+                {% if molpay_status %}
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %}
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-mid">{{ entry_mid }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="molpay_mid" value="{{ molpay_mid }}" placeholder="{{ entry_mid }}" id="input-mid" class="form-control" />
+              {% if error_mid %}
+              <div class="text-danger">{{ error_mid }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-vkey"><span data-toggle="tooltip" title="{{ help_vkey }}">{{ entry_vkey }}</span></label>
+            <div class="col-sm-10">
+              <input type="text" name="molpay_vkey" value="{{ molpay_vkey }}" placeholder="{{ entry_vkey }}" id="input-vkey" class="form-control" />
+              {% if error_vkey %}
+              <div class="text-danger">{{ error_vkey }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-skey"><span data-toggle="tooltip" title="{{ help_skey }}">{{ entry_skey }}</span></label>
+            <div class="col-sm-10">
+              <input type="text" name="molpay_skey" value="{{ molpay_skey }}" placeholder="{{ entry_skey }}" id="input-skey" class="form-control" />
+              {% if error_skey %}
+              <div class="text-danger">{{ error_skey }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-type"><span data-toggle="tooltip" title="{{ help_type }}">{{ entry_type }}</span></label>
+            <div class="col-sm-10">
+              <select name="molpay_type" id="input-type" class="form-control">
+                <option value="https://pay.fiuu.com/" {% if molpay_type == 'https://pay.fiuu.com/' %}selected="selected"{% endif %}>Production</option>
+                <option value="https://sandbox-payment.fiuu.com/" {% if molpay_type == 'https://sandbox-payment.fiuu.com/' %}selected="selected"{% endif %}>Sandbox</option>
+              </select>
+              {% if error_type %}
+              <div class="text-danger">{{ error_type }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-order-status">{{ entry_order_status }}</label>
+            <div class="col-sm-10">
+              <select name="molpay_order_status_id" id="input-order-status" class="form-control">
+                {% for order_status in order_statuses %}
+                <option value="{{ order_status.order_status_id }}" {% if order_status.order_status_id == molpay_order_status_id %}selected="selected"{% endif %}>{{ order_status.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{ entry_completed_status }}</label>
+            <div class="col-sm-10">
+              <select name="molpay_completed_status_id" class="form-control">
+                {% for order_status in order_statuses %}
+                <option value="{{ order_status.order_status_id }}" {% if order_status.order_status_id == molpay_completed_status_id %}selected="selected"{% endif %}>{{ order_status.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{ entry_pending_status }}</label>
+            <div class="col-sm-10">
+              <select name="molpay_pending_status_id" class="form-control">
+                {% for order_status in order_statuses %}
+                <option value="{{ order_status.order_status_id }}" {% if order_status.order_status_id == molpay_pending_status_id %}selected="selected"{% endif %}>{{ order_status.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{ entry_failed_status }}</label>
+            <div class="col-sm-10">
+              <select name="molpay_failed_status_id" class="form-control">
+                {% for order_status in order_statuses %}
+                <option value="{{ order_status.order_status_id }}" {% if order_status.order_status_id == molpay_failed_status_id %}selected="selected"{% endif %}>{{ order_status.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-geo-zone">{{ entry_geo_zone }}</label>
+            <div class="col-sm-10">
+              <select name="molpay_geo_zone_id" id="input-geo-zone" class="form-control">
+                <option value="0">{{ text_all_zones }}</option>
+                {% for geo_zone in geo_zones %}
+                <option value="{{ geo_zone.geo_zone_id }}" {% if geo_zone.geo_zone_id == molpay_geo_zone_id %}selected="selected"{% endif %}>{{ geo_zone.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-sort-order">{{ entry_sort_order }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="molpay_sort_order" value="{{ molpay_sort_order }}" placeholder="{{ entry_sort_order }}" id="input-sort-order" class="form-control" />
+            </div>
+          </div>
+          <br>
+        </form>
+        <div>
+          <h4 style="color:#44d62c;">Next step:</h4>
+          <ol>
+            <li style="padding:5px"> Login to <b style="color:#44d62c;">Razer Merchant Services Merchant Portal</b> <b><a href="https://portal.fiuu.com/index.php?mod=authentication&opt=login" target="_blank">Production</a></b> or <b><a href="https://sandbox-portal.fiuu.com/index.php?mod=authentication&opt=login" target="_blank">Sandbox</a></b> and go to <b style="color:#44d62c;">Transactions -> Settings</b>.</li>
+            <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Return URL</b> value and tick <b style="color:#44d62c;">"Enable Return URL with IPN"</b>.
+            <br />
+            <i>{{ return_url }}</i></li>
+            <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Callback URL</b> and tick <b style="color:#44d62c;">"Yes"</b> to <b style="color:#44d62c;">"Enable Callback URL with IPN"</b>.
+            <br /><i>{{ callback_url }}</i></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}
