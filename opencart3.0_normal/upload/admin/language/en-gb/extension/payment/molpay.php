@@ -26,6 +26,7 @@ $_['text_molpay']                   = '<a onclick="window.open(\'https://fiuu.co
 $_['entry_mid']                                         = 'Razer Merchant Services Merchant ID';
 $_['entry_vkey']                                        = 'Razer Merchant Services Verify Key';
 $_['entry_skey']                                        = 'Razer Merchant Services Secret Key';
+$_['entry_extended_vcode']                              = 'Enable Extended Vcode';
 $_['entry_type']                                        = 'Razer Merchant Services Account Type';
 $_['entry_order_status']                        = 'Order Status';
 $_['entry_completed_status']            = 'Completed Status';
@@ -38,6 +39,7 @@ $_['entry_sort_order']                          = 'Sort Order';
 // Help
 $_['help_vkey']                                         = 'Please refer to your Razer Merchant Services Merchant Profile for this key.';
 $_['help_skey']                                         = 'Please refer to your Razer Merchant Services Merchant Profile for this key.';
+$_['help_extended_vcode']                               = 'Please tick if you have enabled multi currency channels in your Fiuu Merchant Profile';
 $_['help_type']                                         = 'Please choose your account type (Sandbox/Production)';
 $_['type'] = array(1=> "Production", 2=>"Sandbox");
 // Error

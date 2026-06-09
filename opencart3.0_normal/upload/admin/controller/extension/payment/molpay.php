@@ -29,6 +29,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 		$data['entry_mid'] = $this->language->get('entry_mid');
 		$data['entry_vkey'] = $this->language->get('entry_vkey');
 		$data['entry_skey'] = $this->language->get('entry_skey');
+		$data['entry_extended_vcode'] = $this->language->get('entry_extended_vcode');
 		$data['entry_type'] = $this->language->get('entry_type');
 		$data['entry_order_status'] = $this->language->get('entry_order_status');
 		$data['entry_completed_status'] = $this->language->get('entry_completed_status');
@@ -40,6 +41,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 
 		$data['help_vkey'] = $this->language->get('help_vkey');
 		$data['help_skey'] = $this->language->get('help_skey');
+		$data['help_extended_vcode'] = $this->language->get('help_extended_vcode');
 		$data['help_type'] = $this->language->get('help_type');
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -112,6 +114,12 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 			$data['molpay_skey'] = $this->request->post['molpay_skey'];
 		} else {
 			$data['molpay_skey'] = $this->config->get('molpay_skey');
+		}
+
+		if (isset($this->request->post['molpay_extended_vcode'])) {
+			$data['molpay_extended_vcode'] = $this->request->post['molpay_extended_vcode'];
+		} else {
+			$data['molpay_extended_vcode'] = $this->config->get('molpay_extended_vcode');
 		}
 
 		if (isset($this->request->post['molpay_type'])) {
