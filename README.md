@@ -3,27 +3,16 @@ Fiuu OpenCart Shopping Cart Plugin v3.0
 
 <img src="https://user-images.githubusercontent.com/38641542/74417583-ebadb900-4e81-11ea-94b4-249009025b48.jpg">
 
-Fiuu Seamless Integration plugin for OpenCart 3.0.x develop by Fiuu technical team.
+Fiuu Normal Integration plugin for OpenCart 3.0.x develop by Fiuu technical team.
 
 Supported version
 -----------------
-New Update
 
-- Opencart Seamless Plugin
-- Opencart Normal Plugin
-- OpenCart version 3.x
+Opencart Normal Plugin 3.0
 
 Version Branch
 -----------------
 
-- [OpenCart 3.0.8 Seamless for e2Pay](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart-3.0.8_seamless_ID)
-- [OpenCart 3.0.10 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.10_seamless)
-- [OpenCart 3.0.11 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.11_seamless)
-- [OpenCart 3.0.8 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.8_seamless)
-- [OpenCart 3.0.9 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.9_seamless)
-- [OpenCart 3.0 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless)
-- [OpenCart 3.0 Seamless Journal2](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal2)
-- [OpenCart 3.0 Seamless Journal3](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal3.0.7)
 - [OpenCart 3.0 Normal](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_normal)
 
 Notes
@@ -33,11 +22,11 @@ Use at your own risk. For any query or assistance, please email support@fiuu.com
 
 If you have existing plugin, please backup your Opencart folder first
 
-![image](https://user-images.githubusercontent.com/19460508/76836786-592b7b80-686c-11ea-8ebd-908cdc811b2d.png)  
+![image](https://github.com/user-attachments/assets/8f89782e-79c7-4f3b-9f7b-2c5b872e2a27)
 
-![image](https://user-images.githubusercontent.com/19460508/76836806-60528980-686c-11ea-9197-2fd3952ac2c1.png)  
+![image](https://github.com/user-attachments/assets/74193bc4-4ea8-47db-9054-3153e3934cb8)
 
-![image](https://user-images.githubusercontent.com/19460508/76836821-66486a80-686c-11ea-9cce-8b0dd975e2ee.png)
+![image](https://github.com/user-attachments/assets/7aa0e631-015b-425c-ac39-d8d29a536b4b)
 
 Installation Guidance
 -------------
