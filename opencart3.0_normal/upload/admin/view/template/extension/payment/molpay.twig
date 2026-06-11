@@ -28,7 +28,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
             <div class="col-sm-10">
-              <select name="molpay_status" id="input-status" class="form-control">
+              <select name="payment_molpay_status" id="input-status" class="form-control">
                 {% if molpay_status %}
                 <option value="1" selected="selected">{{ text_enabled }}</option>
                 <option value="0">{{ text_disabled }}</option>
@@ -42,7 +42,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-mid">{{ entry_mid }}</label>
             <div class="col-sm-10">
-              <input type="text" name="molpay_mid" value="{{ molpay_mid }}" placeholder="{{ entry_mid }}" id="input-mid" class="form-control" />
+              <input type="text" name="payment_molpay_mid" value="{{ molpay_mid }}" placeholder="{{ entry_mid }}" id="input-mid" class="form-control" />
               {% if error_mid %}
               <div class="text-danger">{{ error_mid }}</div>
               {% endif %}
@@ -51,7 +51,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-vkey"><span data-toggle="tooltip" title="{{ help_vkey }}">{{ entry_vkey }}</span></label>
             <div class="col-sm-10">
-              <input type="text" name="molpay_vkey" value="{{ molpay_vkey }}" placeholder="{{ entry_vkey }}" id="input-vkey" class="form-control" />
+              <input type="text" name="payment_molpay_vkey" value="{{ molpay_vkey }}" placeholder="{{ entry_vkey }}" id="input-vkey" class="form-control" />
               {% if error_vkey %}
               <div class="text-danger">{{ error_vkey }}</div>
               {% endif %}
@@ -60,7 +60,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-skey"><span data-toggle="tooltip" title="{{ help_skey }}">{{ entry_skey }}</span></label>
             <div class="col-sm-10">
-              <input type="text" name="molpay_skey" value="{{ molpay_skey }}" placeholder="{{ entry_skey }}" id="input-skey" class="form-control" />
+              <input type="text" name="payment_molpay_skey" value="{{ molpay_skey }}" placeholder="{{ entry_skey }}" id="input-skey" class="form-control" />
               {% if error_skey %}
               <div class="text-danger">{{ error_skey }}</div>
               {% endif %}
@@ -70,14 +70,14 @@
             <label class="col-sm-2 control-label" for="input-extended-vcode"><span data-toggle="tooltip" title="{{ help_extended_vcode }}">{{ entry_extended_vcode }}</span></label>
             <div class="col-sm-10 checkbox">
               <label>
-                <input type="checkbox" name="molpay_extended_vcode" value="1" id="input-extended-vcode" {% if molpay_extended_vcode %} checked="checked" {% endif %} />
+                <input type="checkbox" name="payment_molpay_extended_vcode" value="1" id="input-extended-vcode" {% if molpay_extended_vcode %} checked="checked" {% endif %} />
               </label>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-type"><span data-toggle="tooltip" title="{{ help_type }}">{{ entry_type }}</span></label>
             <div class="col-sm-10">
-              <select name="molpay_type" id="input-type" class="form-control">
+              <select name="payment_molpay_type" id="input-type" class="form-control">
                 <option value="https://pay.fiuu.com/" {% if molpay_type == 'https://pay.fiuu.com/' %}selected="selected"{% endif %}>Production</option>
                 <option value="https://sandbox-payment.fiuu.com/" {% if molpay_type == 'https://sandbox-payment.fiuu.com/' %}selected="selected"{% endif %}>Sandbox</option>
               </select>
@@ -89,7 +89,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-order-status">{{ entry_order_status }}</label>
             <div class="col-sm-10">
-              <select name="molpay_order_status_id" id="input-order-status" class="form-control">
+              <select name="payment_molpay_order_status_id" id="input-order-status" class="form-control">
                 {% for order_status in order_statuses %}
                 <option value="{{ order_status.order_status_id }}" {% if order_status.order_status_id == molpay_order_status_id %}selected="selected"{% endif %}>{{ order_status.name }}</option>
                 {% endfor %}
@@ -99,7 +99,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">{{ entry_completed_status }}</label>
             <div class="col-sm-10">
-              <select name="molpay_completed_status_id" class="form-control">
+              <select name="payment_molpay_completed_status_id" class="form-control">
                 {% for order_status in order_statuses %}
                 <option value="{{ order_status.order_status_id }}" {% if order_status.order_status_id == molpay_completed_status_id %}selected="selected"{% endif %}>{{ order_status.name }}</option>
                 {% endfor %}
@@ -109,7 +109,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">{{ entry_pending_status }}</label>
             <div class="col-sm-10">
-              <select name="molpay_pending_status_id" class="form-control">
+              <select name="payment_molpay_pending_status_id" class="form-control">
                 {% for order_status in order_statuses %}
                 <option value="{{ order_status.order_status_id }}" {% if order_status.order_status_id == molpay_pending_status_id %}selected="selected"{% endif %}>{{ order_status.name }}</option>
                 {% endfor %}
@@ -119,7 +119,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">{{ entry_failed_status }}</label>
             <div class="col-sm-10">
-              <select name="molpay_failed_status_id" class="form-control">
+              <select name="payment_molpay_failed_status_id" class="form-control">
                 {% for order_status in order_statuses %}
                 <option value="{{ order_status.order_status_id }}" {% if order_status.order_status_id == molpay_failed_status_id %}selected="selected"{% endif %}>{{ order_status.name }}</option>
                 {% endfor %}
@@ -129,7 +129,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-geo-zone">{{ entry_geo_zone }}</label>
             <div class="col-sm-10">
-              <select name="molpay_geo_zone_id" id="input-geo-zone" class="form-control">
+              <select name="payment_molpay_geo_zone_id" id="input-geo-zone" class="form-control">
                 <option value="0">{{ text_all_zones }}</option>
                 {% for geo_zone in geo_zones %}
                 <option value="{{ geo_zone.geo_zone_id }}" {% if geo_zone.geo_zone_id == molpay_geo_zone_id %}selected="selected"{% endif %}>{{ geo_zone.name }}</option>
@@ -140,7 +140,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-sort-order">{{ entry_sort_order }}</label>
             <div class="col-sm-10">
-              <input type="text" name="molpay_sort_order" value="{{ molpay_sort_order }}" placeholder="{{ entry_sort_order }}" id="input-sort-order" class="form-control" />
+              <input type="text" name="payment_molpay_sort_order" value="{{ molpay_sort_order }}" placeholder="{{ entry_sort_order }}" id="input-sort-order" class="form-control" />
             </div>
           </div>
           <br>
@@ -161,3 +161,4 @@
   </div>
 </div>
 {{ footer }}
+

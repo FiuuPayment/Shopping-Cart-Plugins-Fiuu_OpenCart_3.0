@@ -10,7 +10,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 		$this->load->model('setting/setting');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$this->model_setting_setting->editSetting('molpay', $this->request->post);
+			$this->model_setting_setting->editSetting('payment_molpay', $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -98,85 +98,85 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 
 		$data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=payment', true);
 
-		if (isset($this->request->post['molpay_mid'])) {
-			$data['molpay_mid'] = $this->request->post['molpay_mid'];
+		if (isset($this->request->post['payment_molpay_mid'])) {
+			$data['molpay_mid'] = $this->request->post['payment_molpay_mid'];
 		} else {
-			$data['molpay_mid'] = $this->config->get('molpay_mid');
+			$data['molpay_mid'] = $this->config->get('payment_molpay_mid');
 		}
 
-		if (isset($this->request->post['molpay_vkey'])) {
-			$data['molpay_vkey'] = $this->request->post['molpay_vkey'];
+		if (isset($this->request->post['payment_molpay_vkey'])) {
+			$data['molpay_vkey'] = $this->request->post['payment_molpay_vkey'];
 		} else {
-			$data['molpay_vkey'] = $this->config->get('molpay_vkey');
+			$data['molpay_vkey'] = $this->config->get('payment_molpay_vkey');
 		}
 
-		if (isset($this->request->post['molpay_skey'])) {
-			$data['molpay_skey'] = $this->request->post['molpay_skey'];
+		if (isset($this->request->post['payment_molpay_skey'])) {
+			$data['molpay_skey'] = $this->request->post['payment_molpay_skey'];
 		} else {
-			$data['molpay_skey'] = $this->config->get('molpay_skey');
+			$data['molpay_skey'] = $this->config->get('payment_molpay_skey');
 		}
 
-		if (isset($this->request->post['molpay_extended_vcode'])) {
-			$data['molpay_extended_vcode'] = $this->request->post['molpay_extended_vcode'];
+		if (isset($this->request->post['payment_molpay_extended_vcode'])) {
+			$data['molpay_extended_vcode'] = $this->request->post['payment_molpay_extended_vcode'];
 		} else {
-			$data['molpay_extended_vcode'] = $this->config->get('molpay_extended_vcode');
+			$data['molpay_extended_vcode'] = $this->config->get('payment_molpay_extended_vcode');
 		}
 
-		if (isset($this->request->post['molpay_type'])) {
-			$data['molpay_type'] = $this->request->post['molpay_type'];
+		if (isset($this->request->post['payment_molpay_type'])) {
+			$data['molpay_type'] = $this->request->post['payment_molpay_type'];
 		} else {
-			$data['molpay_type'] = $this->config->get('molpay_type');
+			$data['molpay_type'] = $this->config->get('payment_molpay_type');
 		}
 
 
-		if (isset($this->request->post['molpay_order_status_id'])) {
-			$data['molpay_order_status_id'] = $this->request->post['molpay_order_status_id'];
+		if (isset($this->request->post['payment_molpay_order_status_id'])) {
+			$data['molpay_order_status_id'] = $this->request->post['payment_molpay_order_status_id'];
 		} else {
-			$data['molpay_order_status_id'] = $this->config->get('molpay_order_status_id');
+			$data['molpay_order_status_id'] = $this->config->get('payment_molpay_order_status_id');
 		}
 		
-		if (isset($this->request->post['molpay_completed_status_id'])) {
-			$data['molpay_completed_status_id'] = $this->request->post['molpay_completed_status_id'];
+		if (isset($this->request->post['payment_molpay_completed_status_id'])) {
+			$data['molpay_completed_status_id'] = $this->request->post['payment_molpay_completed_status_id'];
 		} else {
-			$data['molpay_completed_status_id'] = $this->config->get('molpay_completed_status_id');
+			$data['molpay_completed_status_id'] = $this->config->get('payment_molpay_completed_status_id');
 		}
 		
-		if (isset($this->request->post['molpay_pending_status_id'])) {
-			$data['molpay_pending_status_id'] = $this->request->post['molpay_pending_status_id'];
+		if (isset($this->request->post['payment_molpay_pending_status_id'])) {
+			$data['molpay_pending_status_id'] = $this->request->post['payment_molpay_pending_status_id'];
 		} else {
-			$data['molpay_pending_status_id'] = $this->config->get('molpay_pending_status_id');
+			$data['molpay_pending_status_id'] = $this->config->get('payment_molpay_pending_status_id');
 		}
 		
-		if (isset($this->request->post['molpay_failed_status_id'])) {
-			$data['molpay_failed_status_id'] = $this->request->post['molpay_failed_status_id'];
+		if (isset($this->request->post['payment_molpay_failed_status_id'])) {
+			$data['molpay_failed_status_id'] = $this->request->post['payment_molpay_failed_status_id'];
 		} else {
-			$data['molpay_failed_status_id'] = $this->config->get('molpay_failed_status_id');
+			$data['molpay_failed_status_id'] = $this->config->get('payment_molpay_failed_status_id');
 		}
 
 		$this->load->model('localisation/order_status');
 
 		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
 
-		if (isset($this->request->post['molpay_geo_zone_id'])) {
-			$data['molpay_geo_zone_id'] = $this->request->post['molpay_geo_zone_id'];
+		if (isset($this->request->post['payment_molpay_geo_zone_id'])) {
+			$data['molpay_geo_zone_id'] = $this->request->post['payment_molpay_geo_zone_id'];
 		} else {
-			$data['molpay_geo_zone_id'] = $this->config->get('molpay_geo_zone_id');
+			$data['molpay_geo_zone_id'] = $this->config->get('payment_molpay_geo_zone_id');
 		}
 
 		$this->load->model('localisation/geo_zone');
 
 		$data['geo_zones'] = $this->model_localisation_geo_zone->getGeoZones();
 
-		if (isset($this->request->post['molpay_status'])) {
-			$data['molpay_status'] = $this->request->post['molpay_status'];
+		if (isset($this->request->post['payment_molpay_status'])) {
+			$data['molpay_status'] = $this->request->post['payment_molpay_status'];
 		} else {
-			$data['molpay_status'] = $this->config->get('molpay_status');
+			$data['molpay_status'] = $this->config->get('payment_molpay_status');
 		}
 
-		if (isset($this->request->post['molpay_sort_order'])) {
-			$data['molpay_sort_order'] = $this->request->post['molpay_sort_order'];
+		if (isset($this->request->post['payment_molpay_sort_order'])) {
+			$data['molpay_sort_order'] = $this->request->post['payment_molpay_sort_order'];
 		} else {
-			$data['molpay_sort_order'] = $this->config->get('molpay_sort_order');
+			$data['molpay_sort_order'] = $this->config->get('payment_molpay_sort_order');
 		}
 
 		$molpay_url = parse_url(HTTP_SERVER);
@@ -205,22 +205,24 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		if (!$this->request->post['molpay_mid']) {
+		if (!$this->request->post['payment_molpay_mid']) {
 			$this->error['mid'] = $this->language->get('error_mid');
 		}
 
-		if (!$this->request->post['molpay_vkey']) {
+		if (!$this->request->post['payment_molpay_vkey']) {
 			$this->error['vkey'] = $this->language->get('error_vkey');
 		}
 
-		if (!$this->request->post['molpay_skey']) {
+		if (!$this->request->post['payment_molpay_skey']) {
 			$this->error['skey'] = $this->language->get('error_skey');
 		}
 
-		if (!$this->request->post['molpay_type']) {
+		if (!$this->request->post['payment_molpay_type']) {
 			$this->error['type'] = $this->language->get('error_type');
 		}
 
 		return !$this->error;
 	}
 }
+
+
