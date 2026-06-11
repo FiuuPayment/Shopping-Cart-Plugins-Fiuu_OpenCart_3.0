@@ -9,7 +9,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 $this->load->model('checkout/order');
 
                 $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
-                
+
                 $data['action'] = $this->config->get('payment_molpay_type').'RMS/pay/'.$this->config->get('payment_molpay_mid').'/';
 
                 $data['amount'] = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);
@@ -25,10 +25,11 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                         $data['vcode'] = md5($data['amount'].$this->config->get('payment_molpay_mid').$data['orderid'].$this->config->get('payment_molpay_vkey'));
                 }
 
+                $data['prod_desc'] = array();
                 $products = $this->cart->getProducts();
-            foreach ($products as $product) {
-                $data['prod_desc'][]= $product['name']." x ".$product['quantity'];
-            }
+                foreach ($products as $product) {
+                    $data['prod_desc'][] = $product['name'] . " x " . $product['quantity'];
+                }
 
                 $data['lang'] = $this->session->data['language'];
 
@@ -43,9 +44,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 
                 $this->load->model('checkout/order');
 
-                $order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
-
-                $vkey = $this->config->get('payment_molpay_skey');
+                $skey_config = $this->config->get('payment_molpay_skey');
 
                 $tranID   = !empty($this->request->post['tranID'])   ? $this->request->post['tranID']   : '';
                 $orderid  = !empty($this->request->post['orderid'])  ? $this->request->post['orderid']  : '';
@@ -66,7 +65,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 }
                 $postData[] = 'treq=1';
                 $postdata = implode('&', $postData);
-                
+
                 $url = $this->config->get('payment_molpay_type')."MOLPay/API/chkstat/returnipn.php";
 
                 $ch = curl_init();
@@ -78,14 +77,14 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER , 1);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER , FALSE);
                 //curl_setopt($ch, CURLOPT_SSLVERSION     , 3);
-                $result = curl_exec( $ch );
-                curl_close( $ch );
+                curl_exec($ch);
+                curl_close($ch);
                 /***********************************************************
                 * End of Acknowledge method for IPN
                 ************************************************************/
 
                 $key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
-                $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
+                $key1 = md5($paydate.$domain.$key0.$appcode.$skey_config);
 
 
                 if ( $skey != $key1 )
@@ -124,7 +123,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                     echo '<body>' . "\n";
                     echo '  <p>Please follow <a href="' . $this->url->link('checkout/failure') . '">link</a>!</p>' . "\n";
                     echo '</body>' . "\n";
-                    echo '</html>' . "\n";                    
+                    echo '</html>' . "\n";
                 }
                 exit();
         }
@@ -135,7 +134,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
         public function callback_ipn()   {
                 $this->load->model('checkout/order');
 
-                $vkey = $this->config->get('payment_molpay_skey');
+                $skey_config = $this->config->get('payment_molpay_skey');
 
                 $nbcb     = !empty($this->request->post['nbcb'])     ? $this->request->post['nbcb']     : '';
                 $tranID   = !empty($this->request->post['tranID'])   ? $this->request->post['tranID']   : '';
@@ -149,7 +148,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 $skey     = !empty($this->request->post['skey'])     ? $this->request->post['skey']     : '';
 
                 $key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
-                $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
+                $key1 = md5($paydate.$domain.$key0.$appcode.$skey_config);
 
                 if ( $skey != $key1 )
                         $status = -1 ;
@@ -157,7 +156,6 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 
                 if ($nbcb == 1) {
                         echo "CBTOKEN:MPSTATOK";
-                        $order_info = $this->model_checkout_order->getOrder($orderid);
 
                         $order_status_id = $this->config->get('config_order_status_id');
 
@@ -181,7 +179,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
         public function notification_ipn()   {
                 $this->load->model('checkout/order');
 
-                $vkey = $this->config->get('payment_molpay_skey');
+                $skey_config = $this->config->get('payment_molpay_skey');
 
                 $nbcb     = !empty($this->request->post['nbcb'])     ? $this->request->post['nbcb']     : '';
                 $tranID   = !empty($this->request->post['tranID'])   ? $this->request->post['tranID']   : '';
@@ -195,14 +193,13 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 $skey     = !empty($this->request->post['skey'])     ? $this->request->post['skey']     : '';
 
                 $key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
-                $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
+                $key1 = md5($paydate.$domain.$key0.$appcode.$skey_config);
 
                 if ( $skey != $key1 )
                     $status = -1;
 
                 if ($nbcb == 2) {
                     echo "CBTOKEN:MPSTATOK";
-                    $order_info = $this->model_checkout_order->getOrder($orderid);
 
                     $order_status_id = $this->config->get('config_order_status_id');
 

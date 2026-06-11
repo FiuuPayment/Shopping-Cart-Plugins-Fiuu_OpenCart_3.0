@@ -63,7 +63,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 		} else {
 			$data['error_vkey'] = '';
 		}
-		
+
 		if (isset($this->error['skey'])) {
 			$data['error_skey'] = $this->error['skey'];
 		} else {
@@ -134,19 +134,19 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 		} else {
 			$data['molpay_order_status_id'] = $this->config->get('payment_molpay_order_status_id');
 		}
-		
+
 		if (isset($this->request->post['payment_molpay_completed_status_id'])) {
 			$data['molpay_completed_status_id'] = $this->request->post['payment_molpay_completed_status_id'];
 		} else {
 			$data['molpay_completed_status_id'] = $this->config->get('payment_molpay_completed_status_id');
 		}
-		
+
 		if (isset($this->request->post['payment_molpay_pending_status_id'])) {
 			$data['molpay_pending_status_id'] = $this->request->post['payment_molpay_pending_status_id'];
 		} else {
 			$data['molpay_pending_status_id'] = $this->config->get('payment_molpay_pending_status_id');
 		}
-		
+
 		if (isset($this->request->post['payment_molpay_failed_status_id'])) {
 			$data['molpay_failed_status_id'] = $this->request->post['payment_molpay_failed_status_id'];
 		} else {
@@ -179,10 +179,8 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 			$data['molpay_sort_order'] = $this->config->get('payment_molpay_sort_order');
 		}
 
-		$molpay_url = parse_url(HTTP_SERVER);
-		$base_url = $molpay_url['scheme'] . '://' . $molpay_url['host'];
-		$data['return_url']   = $base_url . '/index.php?route=extension/payment/molpay/return_ipn';
-		$data['callback_url'] = $base_url . '/index.php?route=extension/payment/molpay/callback_ipn';
+		$data['return_url']   = HTTP_CATALOG . 'index.php?route=extension/payment/molpay/return_ipn';
+		$data['callback_url'] = HTTP_CATALOG . 'index.php?route=extension/payment/molpay/callback_ipn';
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -224,5 +222,4 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 		return !$this->error;
 	}
 }
-
 
