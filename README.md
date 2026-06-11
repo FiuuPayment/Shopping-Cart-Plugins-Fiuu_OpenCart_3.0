@@ -1,4 +1,4 @@
-# [Shopping Cart Plugins] – Fiuu OpenCart 3.0 
+# [Shopping Cart Plugins] – RazerMS OpenCart 3.0 
 Fiuu OpenCart Shopping Cart Plugin v3.0
 
 <img src="https://user-images.githubusercontent.com/38641542/74417583-ebadb900-4e81-11ea-94b4-249009025b48.jpg">
@@ -11,19 +11,6 @@ New Update
 
 - Opencart Seamless Plugin
 - OpenCart version 3.x
-
-Version Branch
------------------
-
-- [OpenCart 3.0.8 Seamless for e2Pay](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart-3.0.8_seamless_ID)
-- [OpenCart 3.0.10 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.10_seamless)
-- [OpenCart 3.0.11 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.11_seamless)
-- [OpenCart 3.0.8 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.8_seamless)
-- [OpenCart 3.0.9 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.9_seamless)
-- [OpenCart 3.0 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless)
-- [OpenCart 3.0 Seamless Journal2](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal2)
-- [OpenCart 3.0 Seamless Journal3](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal3.0.7)
-- [OpenCart 3.1.0 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.1.0_seamless)
 
 Notes
 -------------
