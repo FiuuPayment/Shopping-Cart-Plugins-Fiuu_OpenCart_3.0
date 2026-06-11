@@ -10,7 +10,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 
                 $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
                 
-                $data['action'] = $this->config->get('molpay_type').'RMS/pay/'.$this->config->get('molpay_mid').'/';
+                $data['action'] = $this->config->get('payment_molpay_type').'RMS/pay/'.$this->config->get('payment_molpay_mid').'/';
 
                 $data['amount'] = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);
                 $data['orderid'] = $this->session->data['order_id'];
@@ -19,10 +19,10 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 $data['bill_mobile'] = $order_info['telephone'];
                 $data['country'] = $order_info['payment_iso_code_2'];
                 $data['currency'] = $order_info['currency_code'];
-                if ($this->config->get('molpay_extended_vcode') == "1") {
-                        $data['vcode'] = md5($data['amount'].$this->config->get('molpay_mid').$data['orderid'].$this->config->get('molpay_vkey').$data['currency']);
+                if ($this->config->get('payment_molpay_extended_vcode') == "1") {
+                        $data['vcode'] = md5($data['amount'].$this->config->get('payment_molpay_mid').$data['orderid'].$this->config->get('payment_molpay_vkey').$data['currency']);
                 } else {
-                        $data['vcode'] = md5($data['amount'].$this->config->get('molpay_mid').$data['orderid'].$this->config->get('molpay_vkey'));
+                        $data['vcode'] = md5($data['amount'].$this->config->get('payment_molpay_mid').$data['orderid'].$this->config->get('payment_molpay_vkey'));
                 }
 
                 $products = $this->cart->getProducts();
@@ -45,7 +45,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
 
                 $order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
 
-                $vkey = $this->config->get('molpay_skey');
+                $vkey = $this->config->get('payment_molpay_skey');
 
                 $tranID   = !empty($this->request->post['tranID'])   ? $this->request->post['tranID']   : '';
                 $orderid  = !empty($this->request->post['orderid'])  ? $this->request->post['orderid']  : '';
@@ -67,7 +67,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 $postData[] = 'treq=1';
                 $postdata = implode('&', $postData);
                 
-                $url = $this->config->get('molpay_type')."MOLPay/API/chkstat/returnipn.php";
+                $url = $this->config->get('payment_molpay_type')."MOLPay/API/chkstat/returnipn.php";
 
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_POST           , 1);
@@ -94,11 +94,11 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 $order_status_id = $this->config->get('config_order_status_id');
 
                 if ( $status == "00" )  {
-                        $order_status_id = $this->config->get('molpay_completed_status_id');
+                        $order_status_id = $this->config->get('payment_molpay_completed_status_id');
                 } elseif( $status == "22" ) {
-                        $order_status_id = $this->config->get('molpay_pending_status_id');
+                        $order_status_id = $this->config->get('payment_molpay_pending_status_id');
                 } else {
-                        $order_status_id = $this->config->get('molpay_failed_status_id');
+                        $order_status_id = $this->config->get('payment_molpay_failed_status_id');
                 }
 
 
@@ -135,7 +135,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
         public function callback_ipn()   {
                 $this->load->model('checkout/order');
 
-                $vkey = $this->config->get('molpay_skey');
+                $vkey = $this->config->get('payment_molpay_skey');
 
                 $nbcb     = !empty($this->request->post['nbcb'])     ? $this->request->post['nbcb']     : '';
                 $tranID   = !empty($this->request->post['tranID'])   ? $this->request->post['tranID']   : '';
@@ -162,11 +162,11 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                         $order_status_id = $this->config->get('config_order_status_id');
 
                         if ( $status == "00" )  {
-                                $order_status_id = $this->config->get('molpay_completed_status_id');
+                                $order_status_id = $this->config->get('payment_molpay_completed_status_id');
                         } elseif( $status == "22" ) {
-                                $order_status_id = $this->config->get('molpay_pending_status_id');
+                                $order_status_id = $this->config->get('payment_molpay_pending_status_id');
                         } else {
-                                $order_status_id = $this->config->get('molpay_failed_status_id');
+                                $order_status_id = $this->config->get('payment_molpay_failed_status_id');
                         }
 
                         $this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
@@ -181,7 +181,7 @@ class ControllerExtensionPaymentMOLPay extends Controller {
         public function notification_ipn()   {
                 $this->load->model('checkout/order');
 
-                $vkey = $this->config->get('molpay_skey');
+                $vkey = $this->config->get('payment_molpay_skey');
 
                 $nbcb     = !empty($this->request->post['nbcb'])     ? $this->request->post['nbcb']     : '';
                 $tranID   = !empty($this->request->post['tranID'])   ? $this->request->post['tranID']   : '';
@@ -207,11 +207,11 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                     $order_status_id = $this->config->get('config_order_status_id');
 
                     if ( $status == "00" ) {
-                        $order_status_id = $this->config->get('molpay_completed_status_id');
+                        $order_status_id = $this->config->get('payment_molpay_completed_status_id');
                     } elseif ( $status == "22" ) {
-                        $order_status_id = $this->config->get('molpay_pending_status_id');
+                        $order_status_id = $this->config->get('payment_molpay_pending_status_id');
                     } else {
-                        $order_status_id = $this->config->get('molpay_failed_status_id');
+                        $order_status_id = $this->config->get('payment_molpay_failed_status_id');
                     }
 
                     $this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
