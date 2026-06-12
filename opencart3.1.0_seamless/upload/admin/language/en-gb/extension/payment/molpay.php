@@ -77,6 +77,9 @@ $_['channel_list']					= 	array(
 											'Atome' 		    => 'Atome',
 											'GUPOP' 		    => 'UnionPay',
 											'alipay' 		    => 'Alipay',
+											'creditBI'			=> 'Visa Installment (AmBank (M) Berhad)',
+											'creditBJ'			=> 'Visa Installment (HSBC Bank Malaysia Berhad)',
+											'creditBK'			=> 'Visa Installment (Standard Chartered Bank (Malaysia))',
 										);
 
 // Help
