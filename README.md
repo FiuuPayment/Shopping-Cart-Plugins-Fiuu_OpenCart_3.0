@@ -10,11 +10,13 @@ Supported version
 New Update
 
 - Opencart Seamless Plugin
+- Opencart Normal Plugin
 - OpenCart version 3.x
 
 Version Branch
 -----------------
 
+Seamless
 - [OpenCart 3.0.8 Seamless for e2Pay](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart-3.0.8_seamless_ID)
 - [OpenCart 3.0.10 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.10_seamless)
 - [OpenCart 3.0.11 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0.11_seamless)
@@ -23,6 +25,10 @@ Version Branch
 - [OpenCart 3.0 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless)
 - [OpenCart 3.0 Seamless Journal2](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal2)
 - [OpenCart 3.0 Seamless Journal3](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_seamless_wJournal3.0.7)
+- [OpenCart 3.1.0 Seamless](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.1.0_seamless)
+
+Normal
+- [OpenCart 3.0 Normal](https://github.com/FiuuPayment/Shopping-Cart-Plugins-Fiuu_OpenCart_3.0/tree/opencart3.0_normal)
 
 Notes
 -------------
