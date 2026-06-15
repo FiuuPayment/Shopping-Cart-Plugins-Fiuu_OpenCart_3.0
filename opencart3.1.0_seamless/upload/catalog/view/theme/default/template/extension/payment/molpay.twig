@@ -1,30 +1,194 @@
 <form action="{{ action }}" method="post" id="payment">
-
   <input type="hidden" name="amount" value="{{ amount }}" />
-  <input type="hidden" name="orderid" value="{{ orderid }} " />
-  <input type="hidden" name="bill_name" value="{{  bill_name }}" />
+  <input type="hidden" name="orderid" value="{{ orderid }}" />
+  <input type="hidden" name="bill_name" value="{{ bill_name }}" />
   <input type="hidden" name="bill_email" value="{{ bill_email }}" />
   <input type="hidden" name="bill_mobile" value="{{ bill_mobile }}" />
   <input type="hidden" name="country" value="{{ country }}" />
   <input type="hidden" name="currency" value="{{ currency }}" />
-  <input type="hidden" name="vcode" value="{{ vcode }}">
+  <input type="hidden" name="vcode" value="{{ vcode }}" />
   <input type="hidden" name="returnurl" value="{{ returnurl }}" />
-
   <input type="hidden" name="bill_desc" value="{{ prod_desc2 }}" />
 </form>
 
 <script src="{{ js }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<div class="text-center">
-    <h3><u>Pay via</u>:</h3>
-    <img
-    src="admin/view/image/payment/logo_Fiuu.png" width="150px" height="auto">
-        <br/>
+{% set group_icons = {
+  'Card':              'fa-solid fa-credit-card',
+  'Card Installment':  'fa-solid fa-credit-card',
+  'Online Banking':    'fa-solid fa-building-columns',
+  'E-Wallet / QR':     'fa-solid fa-wallet',
+  'Cash Payment':      'fa-solid fa-money-bill-wave',
+  'Buy Now Pay Later': 'fa-solid fa-clock-rotate-left'
+} %}
 
-        {% for key,val in channel_list %}
-                {% if val == 1 %}
-                       <button class="btn btn-default" type="button" id="myPay" data-toggle="molpayseamless" data-mpsmerchantid="{{ mid }}" data-mpsbill_desc="{{ prod_desc2 }}" data-mpsbill_mobile="{{ bill_mobile }}" data-mpsbill_email="{{ bill_email }}" data-mpscountry="{{ country }}" data-mpscurrency="{{ currency }}" data-mpschannel="{{ key }}" data-mpsamount="{{ amount }}" data-mpsorderid="{{ orderid }}" data-mpsbill_name="{{ bill_name }}" data-mpsvcode="{{ vcode }}" data-mpsreturnurl="{{ returnurl }}" data-mpscancelurl="{{ cancelurl }}" data-mpstimer="1" data-mpstimerbox="YES"><img src="admin/view/image/payment/op-{{ key }}.png" width="150px" height="50px" alt="{{ key }}"/></button>
-                {% endif %}
-        {% endfor %}
+{# All payment data stored as HTML attributes — keeps the <script> block free of Twig values #}
+<div id="fiuu-pay-data" style="display:none;"
+     data-mid="{{ mid }}"
+     data-amount="{{ amount }}"
+     data-orderid="{{ orderid }}"
+     data-bill-name="{{ bill_name|e('html') }}"
+     data-bill-email="{{ bill_email }}"
+     data-bill-mobile="{{ bill_mobile }}"
+     data-bill-desc="{{ prod_desc2|replace({'\n': ' ', '\r': ''}) }}"
+     data-currency="{{ currency }}"
+     data-vcode="{{ vcode }}"
+     data-returnurl="{{ returnurl }}"
+     data-cancelurl="{{ cancelurl }}"
+     data-country="{{ country }}">
+</div>
+
+<div style="max-width:600px; margin:0 auto; font-family:sans-serif;">
+
+  <h3 style="font-size:16px; font-weight:bold;"><u>Pay via</u>:</h3>
+  <img src="admin/view/image/payment/logo_Fiuu.png" width="150px" height="auto" style="display:block; margin-bottom:12px;">
+
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:15px;">
+    {% for group_label, channels in channel_groups %}
+    <button type="button"
+            class="fiuu-cat-btn"
+            data-group="{{ loop.index }}"
+            onclick="fiuuCatClick({{ loop.index }}, this)"
+            style="background:#fff; border:2px solid #ccc; border-radius:6px;
+                   padding:12px 18px; font-size:13px; font-weight:600; cursor:pointer;
+                   outline:none; display:flex; flex-direction:column; align-items:center;
+                   gap:6px; min-width:110px;">
+      <i class="{{ group_icons[group_label] ?? 'fa-solid fa-circle-dot' }}" style="font-size:28px; color:#333;"></i>
+      {{ group_label }}
+    </button>
+    {% endfor %}
+  </div>
+
+  <p style="font-size:13px; color:#555; margin-bottom:12px;">
+    &#9432;&nbsp; Please ensure all payment details are accurate.
+  </p>
+
+  <div id="fiuu-dropdown" style="position:relative; display:inline-block; width:100%; max-width:500px; margin-bottom:14px;">
+    <button id="fiuu-dropdown-btn" type="button"
+            onclick="fiuuToggleDropdown()"
+            style="width:100%; padding:12px; font-size:15px; border-radius:8px;
+                   border:1px solid #ccc; background:#fff; text-align:left;
+                   display:flex; align-items:center; cursor:pointer; outline:none;">
+      Select payment method
+    </button>
+    <div id="fiuu-dropdown-list"
+         style="display:none; position:absolute; width:100%; background:#fff;
+                border:1px solid #ccc; border-radius:8px; z-index:100;
+                max-height:300px; overflow-y:auto; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+    </div>
+  </div>
+
+  <div id="fiuu-pay-wrapper" style="margin-top:6px;">
+    <button type="button" style="width:200px; background-color:#44d62c; color:#fff;
+                                  font-size:18px; padding:10px; border-radius:5px;
+                                  border:none; opacity:0.5; cursor:not-allowed;" disabled>Pay</button>
+  </div>
+
+  {# Hidden channel items — JS clones these into the dropdown on category click #}
+  <div id="fiuu-channel-data" style="display:none;">
+    {% for group_label, channels in channel_groups %}
+    <div data-group="{{ loop.index }}">
+      {% for ch in channels %}
+      <div class="fiuu-ch-item" data-key="{{ ch.key }}"
+           style="padding:10px; cursor:pointer; display:flex; align-items:center;
+                  font-size:14px; border-bottom:1px solid #eee;">
+        <img src="admin/view/image/payment/op-{{ ch.key }}.png"
+             style="margin-right:10px; width:90px; height:40px; object-fit:contain;"
+             onerror="this.style.display='none'">
+        {{ ch.label }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
 
 </div>
+
+<script>
+(function() {
+  var fiuuSelected = null;
+
+  function fiuuGetData() {
+    return document.getElementById('fiuu-pay-data').dataset;
+  }
+
+  window.fiuuCatClick = function(groupId, btn) {
+    var allBtns = document.querySelectorAll('.fiuu-cat-btn');
+    for (var i = 0; i < allBtns.length; i++) {
+      allBtns[i].style.borderColor = '#ccc';
+    }
+    btn.style.borderColor = '#44d62c';
+
+    var list = document.getElementById('fiuu-dropdown-list');
+    list.innerHTML = '';
+    list.style.display = 'none';
+    document.getElementById('fiuu-dropdown-btn').textContent = 'Select payment method';
+    fiuuSelected = null;
+    fiuuResetPay();
+
+    var groupEl = document.querySelector('#fiuu-channel-data [data-group="' + groupId + '"]');
+    if (!groupEl) return;
+    var items = groupEl.querySelectorAll('.fiuu-ch-item');
+    for (var j = 0; j < items.length; j++) {
+      var clone = items[j].cloneNode(true);
+      clone.setAttribute('onclick', 'fiuuChClick("' + items[j].getAttribute('data-key') + '", this)');
+      list.appendChild(clone);
+    }
+  };
+
+  window.fiuuToggleDropdown = function() {
+    var list = document.getElementById('fiuu-dropdown-list');
+    if (!list.children.length) return;
+    list.style.display = (list.style.display === 'block') ? 'none' : 'block';
+  };
+
+  window.fiuuChClick = function(key, el) {
+    fiuuSelected = key;
+    document.getElementById('fiuu-dropdown-btn').innerHTML = el.innerHTML;
+    document.getElementById('fiuu-dropdown-list').style.display = 'none';
+    fiuuEnablePay();
+  };
+
+  document.addEventListener('click', function(e) {
+    var dropdown = document.getElementById('fiuu-dropdown');
+    var list = document.getElementById('fiuu-dropdown-list');
+    if (dropdown && list && !dropdown.contains(e.target)) {
+      list.style.display = 'none';
+    }
+  });
+
+  function fiuuResetPay() {
+    document.getElementById('fiuu-pay-wrapper').innerHTML =
+      '<button type="button" style="width:200px;background-color:#44d62c;color:#fff;'
+      + 'font-size:18px;padding:10px;border-radius:5px;border:none;opacity:0.5;cursor:not-allowed;" disabled>Pay</button>';
+  }
+
+  function fiuuEnablePay() {
+    var d = fiuuGetData();
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('data-toggle', 'molpayseamless');
+    btn.setAttribute('data-mpsmerchantid', d.mid);
+    btn.setAttribute('data-mpschannel', fiuuSelected);
+    btn.setAttribute('data-mpsamount', d.amount);
+    btn.setAttribute('data-mpsorderid', d.orderid);
+    btn.setAttribute('data-mpsbill_name', d.billName);
+    btn.setAttribute('data-mpsbill_email', d.billEmail);
+    btn.setAttribute('data-mpsbill_mobile', d.billMobile);
+    btn.setAttribute('data-mpsbill_desc', d.billDesc);
+    btn.setAttribute('data-mpscurrency', d.currency);
+    btn.setAttribute('data-mpsvcode', d.vcode);
+    btn.setAttribute('data-mpsreturnurl', d.returnurl);
+    btn.setAttribute('data-mpscancelurl', d.cancelurl);
+    btn.setAttribute('data-mpscountry', d.country);
+    btn.setAttribute('data-mpstimer', '1');
+    btn.setAttribute('data-mpstimerbox', 'YES');
+    btn.style.cssText = 'width:200px;background-color:#44d62c;color:#fff;font-size:18px;padding:10px;border-radius:5px;border:none;cursor:pointer;';
+    btn.textContent = 'Pay';
+    var wrapper = document.getElementById('fiuu-pay-wrapper');
+    wrapper.innerHTML = '';
+    wrapper.appendChild(btn);
+  }
+})();
+</script>

@@ -47,11 +47,32 @@ class ControllerExtensionPaymentMolpay extends Controller {
         $this->load->language('extension/payment/molpay');
         $channel_list = $this->language->get('channel_list');
 
+        $data['channel_labels'] = $channel_list;
+
         foreach($channel_list as $key=>$val)
         {
             $inGet = 'payment_molpay_'.$key.'_status';
             $data['channel_list'][$key] = $this->config->get($inGet);
         }
+
+        // Build channel_groups: group definitions come from the language file
+        $group_map = $this->language->get('channel_groups');
+        $data['channel_groups'] = array();
+        foreach ($group_map as $group_label => $keys) {
+            $enabled = array();
+            foreach ($keys as $key) {
+                if (!empty($data['channel_list'][$key])) {
+                    $enabled[] = array(
+                        'key'   => $key,
+                        'label' => isset($channel_list[$key]) ? $channel_list[$key] : $key
+                    );
+                }
+            }
+            if (!empty($enabled)) {
+                $data['channel_groups'][$group_label] = $enabled;
+            }
+        }
+
                 $products = $this->cart->getProducts();
                 $data['prod_desc2']="";
             foreach ($products as $product) {
