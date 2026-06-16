@@ -26,6 +26,8 @@ class ControllerExtensionPaymentMolpay extends Controller {
             $telephone = $this->customer->getTelephone();
         }
 
+        $js_ver = stripos($this->config->get('payment_molpay_type'), 'sandbox') !== false ? "latest" : "3.28";
+
                 $data['action'] = $this->config->get('payment_molpay_type').'MOLPay/pay/'.$this->config->get('payment_molpay_mid').'/';
                 $data['mid']= $this->config->get('payment_molpay_mid');
                 $data['amount'] = number_format($this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false),2);
@@ -35,7 +37,7 @@ class ControllerExtensionPaymentMolpay extends Controller {
                 $data['bill_mobile'] = $telephone;
                 $data['country'] = $order_info['payment_iso_code_2'];
                 $data['currency'] = $order_info['currency_code'];
-                $data['js'] = $this->config->get('payment_molpay_type').'MOLPay/API/seamless/3.28/js/MOLPay_seamless.deco.js';
+                $data['js'] = $this->config->get('payment_molpay_type').'MOLPay/API/seamless/'.$js_ver.'/js/MOLPay_seamless.deco.js';
 
         if ($this->config->get('payment_molpay_extended_vcode') == "1") {
             $data['vcode'] = md5($data['amount'].$this->config->get('payment_molpay_mid').$data['orderid'].$this->config->get('payment_molpay_vkey').$data['currency']);
