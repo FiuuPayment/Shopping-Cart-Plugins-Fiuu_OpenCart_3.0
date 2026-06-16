@@ -23,6 +23,12 @@ class ControllerExtensionPaymentMolpay extends Controller {
                 $this->validate()) {
                         // echo "<pre>";print_r($this->request->post);exit;
 
+                        foreach (array('payment_molpay_mid', 'payment_molpay_vkey', 'payment_molpay_skey') as $key) {
+                                if (isset($this->request->post[$key])) {
+                                        $this->request->post[$key] = trim($this->request->post[$key]);
+                                }
+                        }
+
                         $this->model_setting_setting->editSetting('payment_molpay', $this->request->post);
 
                         $this->session->data['success'] = $this->language->get('text_success');
