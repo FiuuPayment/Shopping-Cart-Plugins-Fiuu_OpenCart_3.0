@@ -3,8 +3,8 @@
   <div class="page-header">
     <div class="container-fluid">
       <div class="pull-right">
-         <button type="submit" form="form-molpay" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
-         <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i> Cancel</a>
+        <button type="submit" form="form-molpay" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i> Cancel</a>
       </div>
       <h1>{{ heading_title }}</h1>
       <ul class="breadcrumb">
@@ -26,8 +26,7 @@
       </div>
       <div class="panel-body">
         <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-molpay" class="form-horizontal">
-
-        <div class="form-group">
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
             <div class="col-sm-10">
               <select name="payment_molpay_status" id="input-status" class="form-control">
@@ -36,14 +35,13 @@
                 <option value="0">{{ text_disabled }}</option>
                 {% else %}
                 <option value="1">{{ text_enabled }}</option>
-                <option value="0" selected="selected">{{ text_disabled
-                }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
                 {% endif %}
               </select>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-mid">{{ entry_mid }} </label>
+            <label class="col-sm-2 control-label" for="input-mid">{{ entry_mid }}</label>
             <div class="col-sm-10">
               <input type="text" name="payment_molpay_mid" value="{{ payment_molpay_mid }}" placeholder="{{ entry_mid }}" id="input-mid" class="form-control" />
               {% if error_mid %}
@@ -54,7 +52,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-vkey"><span data-toggle="tooltip" title="{{ help_vkey }}">{{ entry_vkey }}</span></label>
             <div class="col-sm-10">
-              <input type="text" name="payment_molpay_vkey" value="{{ payment_molpay_vkey }}" placeholder="{{ entry_vkey }} " id="input-vkey" class="form-control" />
+              <input type="text" name="payment_molpay_vkey" value="{{ payment_molpay_vkey }}" placeholder="{{ entry_vkey }}" id="input-vkey" class="form-control" />
               {% if error_vkey %}
               <div class="text-danger">{{ error_vkey }}</div>
               {% endif %}
@@ -63,22 +61,33 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-skey"><span data-toggle="tooltip" title="{{ help_skey }}">{{ entry_skey }}</span></label>
             <div class="col-sm-10">
-              <input type="text" name="payment_molpay_skey" value="{{ payment_molpay_skey }}" placeholder="{{ entry_skey }} " id="input-skey" class="form-control" />
+              <input type="text" name="payment_molpay_skey" value="{{ payment_molpay_skey }}" placeholder="{{ entry_skey }}" id="input-skey" class="form-control" />
               {% if error_skey %}
               <div class="text-danger">{{ error_skey }}</div>
               {% endif %}
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-extended-vcode">
+              <span data-toggle="tooltip" title="{{ help_extended_vcode }}">{{ entry_extended_vcode }}</span>
+            </label>
+            <div class="col-sm-10 checkbox">
+              <label>
+                <input type="checkbox" name="payment_molpay_extended_vcode" value="1" id="input-extended-vcode"
+                  class="form-control" {% if payment_molpay_extended_vcode %} checked="checked" {% endif %} />
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-type"><span data-toggle="tooltip" title="{{ help_type }}">{{ entry_type }}</span></label>
             <div class="col-sm-10">
               <select name="payment_molpay_type" id="input-type" class="form-control">
-                {% set molpay_types = { prod: { title:"Production", url:"https://www.onlinepayment.com.my/"},
-                                        sand: { title:"Sandbox", url:"https://sandbox.merchant.razer.com/"}
+                {% set molpay_types = { prod: { title:"Production", url:"https://pay.fiuu.com/"},
+                                        sand: { title:"Sandbox", url:"https://sandbox-payment.fiuu.com/"}
                                       }
                 %}
                 {% for molpay_type in molpay_types %}
-    {% if molpay_type.url == payment_molpay_type %}
+                {% if molpay_type.url == payment_molpay_type %}
                 <option value="{{ molpay_type.url }}" selected="selected">{{ molpay_type.title }}</option>
                 {% else %}
                 <option value="{{ molpay_type.url }}">{{ molpay_type.title }}</option>
@@ -104,48 +113,48 @@
               </select>
             </div>
           </div>
-                  <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ entry_completed_status }}</label>
-                        <div class="col-sm-10">
-                          <select name="payment_molpay_completed_status_id" class="form-control">
-                                {% for order_status in order_statuses %}
-                                {% if order_status.order_status_id == payment_molpay_completed_status_id %}
-                                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
-                                {% else %}
-                                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
-                                {% endif %}
-                                {% endfor %}
-                          </select>
-                        </div>
-                  </div>
-                  <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ entry_pending_status }}</label>
-                        <div class="col-sm-10">
-                          <select name="payment_molpay_pending_status_id" class="form-control">
-                                {% for order_status in order_statuses %}
-                                {% if order_status.order_status_id == payment_molpay_pending_status_id %}
-                                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
-                                {% else %}
-                                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
-                                {% endif %}
-                                {% endfor %}
-                          </select>
-                        </div>
-                  </div>
-                  <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ entry_failed_status }}</label>
-                        <div class="col-sm-10">
-                          <select name="payment_molpay_failed_status_id" class="form-control">
-                                {% for order_status in order_statuses %}
-                                {% if order_status.order_status_id == payment_molpay_failed_status_id %}
-                                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
-                                {% else %}
-                                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
-                                {% endif %}
-                                {% endfor %}
-                          </select>
-                        </div>
-                  </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{ entry_completed_status }}</label>
+            <div class="col-sm-10">
+              <select name="payment_molpay_completed_status_id" class="form-control">
+                {% for order_status in order_statuses %}
+                {% if order_status.order_status_id == payment_molpay_completed_status_id %}
+                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+                {% else %}
+                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{ entry_pending_status }}</label>
+            <div class="col-sm-10">
+              <select name="payment_molpay_pending_status_id" class="form-control">
+                {% for order_status in order_statuses %}
+                {% if order_status.order_status_id == payment_molpay_pending_status_id %}
+                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+                {% else %}
+                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{ entry_failed_status }}</label>
+            <div class="col-sm-10">
+              <select name="payment_molpay_failed_status_id" class="form-control">
+                {% for order_status in order_statuses %}
+                {% if order_status.order_status_id == payment_molpay_failed_status_id %}
+                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+                {% else %}
+                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-geo-zone">{{ entry_geo_zone }}</label>
             <div class="col-sm-10">
@@ -153,11 +162,9 @@
                 <option value="0">{{ text_all_zones }}</option>
                 {% for geo_zones in geo_zone %}
                 {% if geo_zone.geo_zone_id == payment_molpay_geo_zone_id %}
-                <option value="{{ geo_zone.geo_zone_id }}"
-                selected="selected">{{ geo_zone.name }}</option>
+                <option value="{{ geo_zone.geo_zone_id }}" selected="selected">{{ geo_zone.name }}</option>
                 {% else %}
-                <option value="{{ geo_zone.geo_zone_id }}">{{ geo_zone.name
-                }}</option>
+                <option value="{{ geo_zone.geo_zone_id }}">{{ geo_zone.name }}</option>
                 {% endif %}
                 {% endfor %}
               </select>
@@ -170,56 +177,46 @@
             </div>
           </div>
           <br>
-          <div style="border-top: 3px dotted #515151; border-bottom: 3px
-          dotted #515151; box-shadow: inset 0 -1px 0 0 #515151, inset 0 1px
-          0 0 #515151, 0 1px 0 0 #515151, 0 -1px 0 0 #515151; margin-bottom:
-          25px; padding: 20px;">
-          <h3 class="text-center">Enable/Disable Channel From Here:</h3>
-          <br>
-         {% for key,val in channel_list %}
-          {% set inStatus = statx[key] %}
-
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-{{ key }}-status">{{ val }}</label>
-            <div class="col-sm-10">
-              <select name="payment_molpay_{{key}}_status" id="input-{{ key }}-status" class="form-control">
-              {% if payment_molpay_mid %}
-
-                {% if inStatus %}
-                <option value="1" class="greencolor" selected="selected">{{ text_enabled }}</option>
-                <option value="0" class="redcolor" >{{ text_disabled }}</option>
-                {% else %}
+          <div style="border-top: 3px dotted #515151; border-bottom: 3px dotted #515151; box-shadow: inset 0 -1px 0 0 #515151, inset 0 1px 0 0 #515151, 0 1px 0 0 #515151, 0 -1px 0 0 #515151; margin-bottom: 25px; padding: 20px;">
+            <h3 class="text-center">Enable/Disable Channel From Here:</h3>
+            <br>
+            {% for key,val in channel_list %}
+            {% set inStatus = statx[key] %}
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-{{ key }}-status">{{ val }}</label>
+              <div class="col-sm-10">
+                <select name="payment_molpay_{{key}}_status" id="input-{{ key }}-status" class="form-control">
+                  {% if payment_molpay_mid %}
+                  {% if inStatus %}
+                  <option value="1" class="greencolor" selected="selected">{{ text_enabled }}</option>
+                  <option value="0" class="redcolor">{{ text_disabled }}</option>
+                  {% else %}
                   <option value="1" class="greencolor">{{ text_enabled }}</option>
                   <option value="0" class="redcolor" selected="selected">{{ text_disabled }}</option>
-
-                {% endif %}
-
-                {% else %}
-
-                <option value="1" selected="selected">{{ text_enabled }}</option>
-                <option value="0">{{ text_disabled }}</option>
-
-              {% endif %}
-              </select>
+                  {% endif %}
+                  {% else %}
+                  <option value="1" selected="selected">{{ text_enabled }}</option>
+                  <option value="0">{{ text_disabled }}</option>
+                  {% endif %}
+                </select>
+              </div>
             </div>
-          </div>
-
-          {% endfor %}
+            {% endfor %}
           </div>
         </form>
-                <div>
-                  <h4 style="color:#44d62c;">Next step:</h4>
-                  <ol >
-                 <li style="padding:5px"> Login to <b style="color:#44d62c;">Razer Merchant Services Merchant Portal</b> <b><a href="https://portal.merchant.razer.com/index.php?mod=authentication&opt=login" target="_blank" >Production</a></b> or <b><a href="https://sandbox.merchant.razer.com/MerchantPortal/index.php?mod=authentication&opt=login" target="_blank" >Sandbox</a></b> and go to <b style="color:#44d62c;">Transactions -> Settings</b>.</li>
-                 {% set molpay_url = molpay_url %}
-                  <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Return URL</b> value and tick <b style="color:#44d62c;">"Enable Return URL with IPN"</b>.
-                        <br />
-                  <i> {{ molpay_url.scheme }}://{{ molpay_url.host }}/index.php?route=payment/molpay/return_ipn </i></li>
-
-                  <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Callback URL</b> and tick <b style="color:#44d62c;">"Yes"</b> to <b style="color:#44d62c;">"Enable Callback URL with IPN"</b>.
-                        <br /><i> {{ molpay_url.scheme }}://{{ molpay_url.host }}/index.php?route=payment/molpay/callback_ipn </i></li>
-                  </ol>
-                </div>
+        <div>
+          <h4 style="color:#44d62c;">Next step:</h4>
+          <ol>
+            <li style="padding:5px"> Login to <b style="color:#44d62c;">Razer Merchant Services Merchant Portal</b> <b><a href="https://portal.fiuu.com/index.php?mod=authentication&opt=login" target="_blank">Production</a></b> or <b><a href="https://sandbox-portal.fiuu.com/index.php?mod=authentication&opt=login" target="_blank">Sandbox</a></b> and go to <b style="color:#44d62c;">Transactions -> Settings</b>.</li>
+            <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Return URL</b> value and tick <b style="color:#44d62c;">"Enable Return URL with IPN"</b>.
+              <br />
+              <i> {{ molpay_url.scheme }}://{{ molpay_url.host }}/index.php?route=payment/molpay/return_ipn </i>
+            </li>
+            <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Callback URL</b> and tick <b style="color:#44d62c;">"Yes"</b> to <b style="color:#44d62c;">"Enable Callback URL with IPN"</b>.
+              <br /><i> {{ molpay_url.scheme }}://{{ molpay_url.host }}/index.php?route=payment/molpay/callback_ipn </i>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
