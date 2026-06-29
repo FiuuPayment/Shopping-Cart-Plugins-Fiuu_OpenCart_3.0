@@ -3,7 +3,7 @@
  * Razer Merchant Services OpenCart Plugin
  *
  * @package Payment Gateway
- * @author Razer Merchant Services Technical Team <technical-sa@razer.com>
+ * @author Razer Merchant Services Technical Team <technical@fiuu.com>
  * @version 3.0
  */
 
@@ -93,5 +93,5 @@ $_['error_permission'] = 'Warning: You do not have permission to modify Razer Me
 $_['error_mid']        = '<b>Razer Merchant Services Merchant ID</b> Required!';
 $_['error_vkey']       = '<b>Razer Merchant Services Verify Key</b> Required!';
 $_['error_skey']       = '<b>Razer Merchant Services Secret Key</b> Required!';
-$_['error_settings']   = 'Razer Merchant Services merchant ID and verify key mismatch, contact support-sa@razer.com for assistance.';
+$_['error_settings']   = 'Razer Merchant Services merchant ID and verify key mismatch, contact support@fiuu.com for assistance.';
 $_['error_status']     = 'Unable to connect Razer Merchant Services API.';
