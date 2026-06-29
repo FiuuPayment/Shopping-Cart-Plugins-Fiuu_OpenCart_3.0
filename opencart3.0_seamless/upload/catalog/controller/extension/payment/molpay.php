@@ -39,7 +39,8 @@ class ControllerExtensionPaymentMolpay extends Controller {
             $data['vcode'] = md5($data['amount'] . $this->config->get('payment_molpay_mid') . $data['orderid'] . $this->config->get('payment_molpay_vkey'));
         }
 
-        $data['js'] = $this->config->get('payment_molpay_type') . 'MOLPay/API/seamless/3.28/js/MOLPay_seamless.deco.js';
+        $js_ver = stripos($this->config->get('payment_molpay_type'), 'sandbox') !== false ? "latest" : "3.28";
+        $data['js'] = $this->config->get('payment_molpay_type') . 'MOLPay/API/seamless/' . $js_ver . '/js/MOLPay_seamless.deco.js';
 
         $this->load->language('extension/payment/molpay');
         $channel_list = $this->language->get('channel_list');
