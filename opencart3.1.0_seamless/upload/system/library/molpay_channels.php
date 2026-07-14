@@ -55,6 +55,7 @@ $_molpay_channels = array(
 	'BOOST'            => array('BOOST',                                            'E-Wallet / QR'),
 	'GrabPay'          => array('GrabPay',                                          'E-Wallet / QR'),
 	'MB2U_QRPay-Push'  => array('Maybank QRPay',                                   'E-Wallet / QR'),
+	'RPP_DuitNowQR'    => array('DuitNow QR',                                       'E-Wallet / QR'),
 	'ShopeePay'        => array('Shopee Pay',                                       'E-Wallet / QR'),
 	'TNG-EWALLET'      => array('Touch \'N Go',                                    'E-Wallet / QR'),
 	'WeChatPayMY'      => array('WeChat Pay MY',                                    'E-Wallet / QR'),
